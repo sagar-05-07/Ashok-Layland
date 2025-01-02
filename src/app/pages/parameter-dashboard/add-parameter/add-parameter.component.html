@@ -1,0 +1,199 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+        {{data ? 'Update' : 'Add'}} Parameter
+    </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Parameter : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Parameter">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Spec : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Spec	">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Min : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Min Value">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Max : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Max Value">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Special : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Special">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Method : </label>
+                <div class=" col-sm-9">
+                    <input type="text" class="form-control" placeholder="Enter Method">
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Location: </label>
+                <div class=" col-sm-9">
+                    <mat-select class="form-control" placeholder="Select Location" required>
+                        <mat-option [value]="0">Mumbai</mat-option>
+                        <mat-option [value]="1">Banglore</mat-option>
+                        <mat-option [value]="2">Chennai</mat-option>
+                        <mat-option [value]="4">Hyderabad</mat-option>
+                        <mat-option [value]="5">Raipur</mat-option>
+                        <mat-option [value]="0">Bhilai</mat-option>
+                        <mat-option [value]="1">Pune</mat-option>
+                        <mat-option [value]="2">Delhi</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Auditor : </label>
+                <div class=" col-sm-9">
+                    <mat-select class="form-control" placeholder="Select Auditor Name">
+                        <mat-option value="John Doe">John Doe</mat-option>
+                        <mat-option value="Jane Smith">Jane Smith</mat-option>
+                        <mat-option value="Michael Johnson">Michael Johnson</mat-option>
+                        <mat-option value="Emily Brown">Emily Brown</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Audit Date : </label>
+                <div class=" col-sm-9">
+                    <input type="date" class="form-control" placeholder="Enter Supplier Name">
+                </div>
+            </div> -->
+
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-3 add-member-label">Interior Trim: </label>
+                <div class=" col-sm-9">
+                    <mat-select class="form-control" placeholder="Select Interior Trim" required>
+                        <mat-option [value]="0">High</mat-option>
+                        <mat-option [value]="1">Medium</mat-option>
+                        <mat-option [value]="2">Low</mat-option>
+                    </mat-select>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-12">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">S1 : </label>
+                    <div class=" col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter S1 Value">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">S2 : </label>
+                    <div class=" col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter S2 Value">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">S3 : </label>
+                    <div class=" col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter S3 Value">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">S4 : </label>
+                    <div class=" col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter S4 Value">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">S5 : </label>
+                    <div class=" col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter S5 Value">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Remarks : </label>
+                    <div class=" col-sm-9">
+                        <textarea type="text" class="form-control" placeholder="Enter Remarks"></textarea>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Color: </label>
+                    <div class=" col-sm-9">
+                        <mat-select class="form-control" placeholder="Select Color" required>
+                            <mat-option [value]="0">White</mat-option>
+                            <mat-option [value]="1">Black</mat-option>
+                            <mat-option [value]="2">Blue</mat-option>
+                            <mat-option [value]="3">Orange</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Transmission: </label>
+                    <div class=" col-sm-9">
+                        <mat-select class="form-control" placeholder="Select Transmission" required>
+                            <mat-option [value]="0">Automatic</mat-option>
+                            <mat-option [value]="1">Semi-Automatic</mat-option>
+                            <mat-option [value]="2">Manual</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Fuel Type: </label>
+                    <div class=" col-sm-9">
+                        <mat-select class="form-control" placeholder="Select Fuel Type" required>
+                            <mat-option [value]="0">Petrol</mat-option>
+                            <mat-option [value]="1">Diesel</mat-option>
+                            <mat-option [value]="2">EV</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Date: </label>
+                    <div class=" col-sm-9">
+                        <input type="date" class="form-control" placeholder="Select Date ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 add-member-label">Stage Name: </label>
+                    <div class=" col-sm-9">
+                        <mat-select class="form-control" placeholder="Select Stage Name">
+                            <mat-option [value]="0">OTS - Off Tool Sample</mat-option>
+                            <mat-option [value]="1">PPV - Pre Product Validation</mat-option>
+                            <mat-option [value]="1">PP - Pre Production</mat-option>
+                            <mat-option [value]="1">P - Production</mat-option>
+                            <mat-option [value]="1">SOP - Start of Production</mat-option>
+                        </mat-select>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="button" class="btn btn-outline-success" style="margin-right: 10px; height: 41px;">Save Draft</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="'test'">
+        <mat-icon>save</mat-icon><span>{{data ? 'Update' : 'Submit'}}</span>
+    </button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">
+        <mat-icon>cancel</mat-icon>Close
+    </button>
+</mat-dialog-actions>

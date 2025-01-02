@@ -1,0 +1,1045 @@
+<div class="col-sm-12">
+    <td colspan="15">
+        <div class="pills">
+            <ul class="nav nav-pills" style="margin-left: 10px;">
+                <li routerLinkActive="active">
+                    <a mat-raised-button style="color: white;"
+                        [ngStyle]="{'background-color': innerscreenname=='Overview' ? '#808080' : '#ffffff'}"
+                        (click)="daily('Overview')" id="Overview" class="navtabWidth" style="margin-top: 10px;">
+                        Active (4)
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button style="color: white;"
+                        [ngStyle]="{'background-color': innerscreenname=='Addresses' ? '#808080' : '#ffffff'}"
+                        (click)="daily('Addresses')" id="Addresses" class="navtabWidth" style="margin-top: 10px;">
+                        Overdue (3)
+                    </a>
+                </li>
+
+                <li routerLinkActive="active">
+                    <a mat-raised-button style="color: white;"
+                        [ngStyle]="{'background-color': innerscreenname=='Certificates' ? '#808080' : '#ffffff'}"
+                        (click)="daily('Certificates')" id="Certificates" class="navtabWidth" style="margin-top: 10px;">
+                        Resolved (5)
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+            <div *ngIf="innerscreenname == 'Overview'" style="margin-top: 40px;">
+                <div class="row" *ngFor="let item of values">
+                    <div fxLayout="row wrap" #resizedDiv>
+                        <div class="w-100 flex-p" style="margin-top: -50px; margin-bottom: 10px;">
+
+                            <!-- <button mat-raised-button *ngIf="!isCardView" class="pull-right btn-success margin-right-10"
+                                style="margin-top: 10px;" (click)="opencasedialog()">
+                                <mat-icon>add</mat-icon>Add
+                            </button> -->
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white;">
+                                <mat-icon>filter_list</mat-icon> Filter
+                            </button>
+
+                            <!-- <button mat-raised-button class="pull-right"
+                                style="background-color: #50636d !important; margin-top: 10px; color:white; margin-right: 8px;">
+                                <mat-icon>get_app</mat-icon> Download CSV
+                            </button> -->
+
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white; margin-left: 5px;"
+                                (click)="isCardView = !isCardView">
+                                <mat-icon>{{ isCardView ? 'view_module' : 'view_list' }}</mat-icon>
+                                {{ isCardView ? 'Grid View' : 'Card View' }}
+                            </button>
+                        </div>
+                    </div>
+                    <div fxLayout="row wrap" *ngIf="filterToggle" style="margin-left: 10px;"
+                        style="margin-bottom: 10px;flex-flow: wrap;box-sizing: border-box;display: flex;">
+                        <div fxFlex="100" class="flex-p w-100">
+                            <form [formGroup]="filterForm">
+                                <mat-card class="filter">
+                                    <mat-card-content>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-3" style="margin-top: 6px;">
+                                                    <b>Keyword:</b>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" placeholder="Search by Keyword"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-2" style="margin-top: 6px;">
+                                                    <b>Patient:</b>
+                                                </div>
+                                                <div class="col-sm-10">
+
+                                                    <mat-select placeholder="--Select Patient--" class="form-control"
+                                                        multiple [(value)]="selectedEventType">
+                                                        <mat-select-trigger>
+                                                            {{selectedEventType || '--Select Patient--'}}
+                                                        </mat-select-trigger>
+                                                        <mat-form-field *ngIf="eventTypes.length > 1" appearance="fill"
+                                                            style="width: 100%;">
+                                                            <input matInput (input)="applyFilter($event)"
+                                                                placeholder="Search">
+                                                        </mat-form-field>
+                                                        <mat-option *ngFor="let event of filteredEventTypes"
+                                                            [value]="event">
+                                                            {{event}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 pull-right">
+                                                <a (click)="filterToggle = !filterToggle" class="pull-right"
+                                                    style="font-size: 25px; cursor: pointer; margin-left: 5px">
+                                                    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                                                </a>
+                                                <button mat-raised-button color="primary" class="pull-right"
+                                                    style="background-color: #007BFF !important; color:white;">
+                                                    Search
+                                                </button>
+
+                                                <button mat-raised-button
+                                                    class="pull-right btn-default margin-right-10">
+                                                    Clear
+                                                </button>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" *ngIf="isCardView">
+                        <!-- Existing Cards -->
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Pending Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks; let i = index">
+
+                                <mat-card class="progress-card" *ngIf="i != 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername" style="color: red;">{{ task.providername
+                                                }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">
+                                                Document 3 | Due Date : 20-12-2022
+                                            </div>
+                                            <!-- Add icon and text only for the first card -->
+                                            <ng-container *ngIf="i === 0">
+                                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                    <mat-icon>info</mat-icon>
+                                                    <span style="margin-left: 5px;">Some additional text or
+                                                        information</span>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+
+
+
+
+                                <mat-card class="progress-card" *ngIf="i === 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername" style="color: red;">{{ task.providername
+                                                }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">
+                                                Document 3 | Due Date : 20-12-2022
+                                            </div>
+                                            <!-- Add icon and text only for the first card -->
+                                            <!-- <ng-container *ngIf="i === 0">
+                                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                    <mat-icon>info</mat-icon>
+                                                    <span style="margin-left: 5px;">Some additional text or
+                                                        information</span>
+                                                </div>
+                                            </ng-container> -->
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- In-Progress Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+
+
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername" style="color: green;">{{
+                                                task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Completed Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of completedTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Completed Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of completedTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Complaint Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of complaintTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-sm-12" *ngIf="!isCardView">
+                        <div fxLayout="row wrap">
+                            <div class="w-100">
+                                <div fxLayout="row wrap" style="margin-top:-3px;">
+                                    <div class="table-responsive w-100 flex-p" id="divTable">
+                                        <table matSort id="example2" class="table table-bordered table-hover">
+                                            <thead class="tbl-head">
+                                                <tr>
+                                                    <th>CAPA Reference</th>
+                                                    <th>Audit Reference</th>
+                                                    <th>Audit Type</th>
+                                                    <th>Commodity</th>
+                                                    <!-- <th>Parts Family</th> -->
+                                                    <th class="text-center" style="width: 70px;">Docs</th>
+                                                    <th>Auditor Remarks</th>
+                                                    <th>Auditee Response</th>
+                                                    <th>CAPA Date</th>
+                                                    <th>Due Date</th>
+                                                    <!-- <th>Color</th> -->
+                                                    <th class="text-center">Resolved</th>
+                                                    <th class="text-center">Done</th>
+                                                    <!-- <th class="text-center">Status</th> -->
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of values1">
+                                                    <td>
+                                                        CAPA/2024/18108
+                                                    </td>
+                                                    <td>{{item.auditReference}}</td>
+                                                    <td>{{item.auditType}}</td>
+                                                    <td>{{item.commodity}}</td>
+                                                    <!-- <td>{{item.partsFamily}}</td> -->
+                                                    <td class="text-center" (click)="openDocs()"
+                                                        style="color: blue; cursor: pointer;">2</td>
+                                                    <!-- Eye icon for notes -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.notes}}" matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue ;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+
+                                                    <!-- Eye icon for description -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.description}}"
+                                                            matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+                                                    <td>{{item.issueDate}}</td>
+                                                    <td>{{item.dueDate}}</td>
+                                                    <!-- <td>{{item.color}}</td> -->
+                                                    <td class="text-center">
+                                                        <mat-checkbox></mat-checkbox>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+                                                    </td>
+                                                    <!-- <td><a [ngStyle]="{'color': item.status ? 'blue' : 'red','cursor':'pointer'}" placement="left"
+                                                                    (click)="item.status=!item.status; saveStatus()">
+                                                                    {{item.status ? 'Active' : 'Inactive'}}
+                                                                </a>
+                                                            </td> -->
+                                                    <td class="text-center editDel">
+                                                        <a style="cursor: pointer;" matTooltip="Edit"
+                                                            (click)="addParameter(item)">
+                                                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                                                        </a>
+                                                        <a style="cursor: pointer;" matTooltip="Delete"
+                                                            (click)="deleteParameter(item)">
+                                                            <i class="fa fa-trash red"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage"
+                                        [pageSize]="" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                                        showFirstLastButtons></mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="innerscreenname == 'Addresses'" style="margin-top: 40px;">
+                <div class="row" *ngFor="let item of values">
+                    <div fxLayout="row wrap" #resizedDiv>
+                        <div class="w-100 flex-p" style="margin-top: -50px; margin-bottom: 10px;">
+
+                            <!-- <button mat-raised-button *ngIf="!isCardView" class="pull-right btn-success margin-right-10"
+                                style="margin-top: 10px;" (click)="opencasedialog()">
+                                <mat-icon>add</mat-icon>Add
+                            </button> -->
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white;"
+                                (click)="filterToggle = !filterToggle">
+                                <mat-icon>filter_list</mat-icon> Filter
+                            </button>
+                            <!-- 
+                            <button mat-raised-button class="pull-right"
+                                style="background-color: #50636d !important; margin-top: 10px; color:white; margin-right: 8px;">
+                                <mat-icon>get_app</mat-icon> Download CSV
+                            </button> -->
+
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white; margin-left: 5px;"
+                                (click)="isCardView = !isCardView">
+                                <mat-icon>{{ isCardView ? 'view_module' : 'view_list' }}</mat-icon>
+                                {{ isCardView ? 'Grid View' : 'Card View' }}
+                            </button>
+                        </div>
+                    </div>
+                    <div fxLayout="row wrap" *ngIf="filterToggle" style="margin-left: 10px;"
+                        style="margin-bottom: 10px;flex-flow: wrap;box-sizing: border-box;display: flex;">
+                        <div fxFlex="100" class="flex-p w-100">
+                            <form [formGroup]="filterForm">
+                                <mat-card class="filter">
+                                    <mat-card-content>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-3" style="margin-top: 6px;">
+                                                    <b>Keyword:</b>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" placeholder="Search by Keyword"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-2" style="margin-top: 6px;">
+                                                    <b>Patient:</b>
+                                                </div>
+                                                <div class="col-sm-10">
+
+                                                    <mat-select placeholder="--Select Patient--" class="form-control"
+                                                        multiple [(value)]="selectedEventType">
+                                                        <mat-select-trigger>
+                                                            {{selectedEventType || '--Select Patient--'}}
+                                                        </mat-select-trigger>
+                                                        <mat-form-field *ngIf="eventTypes.length > 1" appearance="fill"
+                                                            style="width: 100%;">
+                                                            <input matInput (input)="applyFilter($event)"
+                                                                placeholder="Search">
+                                                        </mat-form-field>
+                                                        <mat-option *ngFor="let event of filteredEventTypes"
+                                                            [value]="event">
+                                                            {{event}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 pull-right">
+                                                <a (click)="filterToggle = !filterToggle" class="pull-right"
+                                                    style="font-size: 25px; cursor: pointer; margin-left: 5px">
+                                                    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                                                </a>
+                                                <button mat-raised-button color="primary" class="pull-right"
+                                                    style="background-color: #007BFF !important; color:white;">
+                                                    Search
+                                                </button>
+
+                                                <button mat-raised-button
+                                                    class="pull-right btn-default margin-right-10">
+                                                    Clear
+                                                </button>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" *ngIf="isCardView">
+                        <!-- Existing Cards -->
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Pending Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks; let i = index">
+
+                                <mat-card class="progress-card" *ngIf="i != 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                            <!-- Add icon and text only for the first card -->
+                                            <ng-container *ngIf="i === 0">
+                                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                    <mat-icon>info</mat-icon>
+                                                    <span style="margin-left: 5px;">Some additional text or
+                                                        information</span>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+                                <mat-card class="progress-card" *ngIf="i === 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername" style="color: red;">{{ task.providername
+                                                }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- In-Progress Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+
+
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Completed Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of completedTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Complaint Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of complaintTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-sm-12" *ngIf="!isCardView">
+                        <div fxLayout="row wrap">
+                            <div class="w-100">
+                                <div fxLayout="row wrap" style="margin-top:-3px;">
+                                    <div class="table-responsive w-100 flex-p" id="divTable">
+                                        <table matSort id="example2" class="table table-bordered table-hover">
+                                            <thead class="tbl-head">
+                                                <tr>
+                                                    <th>CAPA Reference</th>
+                                                    <th>Audit Reference</th>
+                                                    <th>Audit Type</th>
+                                                    <th>Commodity</th>
+                                                    <!-- <th>Parts Family</th> -->
+                                                    <th class="text-center" style="width: 70px;">Docs</th>
+                                                    <th>Auditor Remarks</th>
+                                                    <th>Auditee Response</th>
+                                                    <th>CAPA Date</th>
+                                                    <th>Due Date</th>
+                                                    <!-- <th>Color</th> -->
+                                                    <th class="text-center">Resolved</th>
+                                                    <th class="text-center">Done</th>
+                                                    <!-- <th class="text-center">Status</th> -->
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of values1">
+                                                    <td>
+                                                        CAPA/2024/18108
+                                                    </td>
+                                                    <td>{{item.auditReference}}</td>
+                                                    <td>{{item.auditType}}</td>
+                                                    <td>{{item.commodity}}</td>
+                                                    <!-- <td>{{item.partsFamily}}</td> -->
+                                                    <td class="text-center" (click)="openDocs()"
+                                                        style="color: blue; cursor: pointer;">2</td>
+                                                    <!-- Eye icon for notes -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.notes}}" matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue ;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+
+                                                    <!-- Eye icon for description -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.description}}"
+                                                            matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+                                                    <td>{{item.issueDate}}</td>
+                                                    <td>{{item.dueDate}}</td>
+                                                    <!-- <td>{{item.color}}</td> -->
+                                                    <td class="text-center">
+                                                        <mat-checkbox></mat-checkbox>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+                                                    </td>
+                                                    <!-- <td><a [ngStyle]="{'color': item.status ? 'blue' : 'red','cursor':'pointer'}" placement="left"
+                                                                    (click)="item.status=!item.status; saveStatus()">
+                                                                    {{item.status ? 'Active' : 'Inactive'}}
+                                                                </a>
+                                                            </td> -->
+                                                    <td class="text-center editDel">
+                                                        <a style="cursor: pointer;" matTooltip="Edit"
+                                                            (click)="addParameter(item)">
+                                                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                                                        </a>
+                                                        <a style="cursor: pointer;" matTooltip="Delete"
+                                                            (click)="deleteParameter(item)">
+                                                            <i class="fa fa-trash red"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage"
+                                        [pageSize]="" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                                        showFirstLastButtons></mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="innerscreenname == 'Certificates'" style="margin-top: 40px;">
+                <div class="row" *ngFor="let item of values">
+                    <div fxLayout="row wrap" #resizedDiv>
+                        <div class="w-100 flex-p" style="margin-top: -50px; margin-bottom: 10px;">
+                            <!-- 
+                            <button mat-raised-button *ngIf="!isCardView" class="pull-right btn-success margin-right-10"
+                                style="margin-top: 10px;" (click)="opencasedialog()">
+                                <mat-icon>add</mat-icon>Add
+                            </button> -->
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white;"
+                                (click)="filterToggle = !filterToggle">
+                                <mat-icon>filter_list</mat-icon> Filter
+                            </button>
+
+                            <!-- <button mat-raised-button class="pull-right"
+                                style="background-color: #50636d !important; margin-top: 10px; color:white; margin-right: 8px;">
+                                <mat-icon>get_app</mat-icon> Download CSV
+                            </button> -->
+
+                            <button mat-raised-button class="pull-right margin-right-10"
+                                style="background-color: black; margin-top: 10px; color:white; margin-left: 5px;"
+                                (click)="isCardView = !isCardView">
+                                <mat-icon>{{ isCardView ? 'view_module' : 'view_list' }}</mat-icon>
+                                {{ isCardView ? 'Grid View' : 'Card View' }}
+                            </button>
+                        </div>
+                    </div>
+                    <div fxLayout="row wrap" *ngIf="filterToggle" style="margin-left: 10px;"
+                        style="margin-bottom: 10px;flex-flow: wrap;box-sizing: border-box;display: flex;">
+                        <div fxFlex="100" class="flex-p w-100">
+                            <form [formGroup]="filterForm">
+                                <mat-card class="filter">
+                                    <mat-card-content>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-3" style="margin-top: 6px;">
+                                                    <b>Keyword:</b>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" placeholder="Search by Keyword"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-2" style="margin-top: 6px;">
+                                                    <b>Patient:</b>
+                                                </div>
+                                                <div class="col-sm-10">
+
+                                                    <mat-select placeholder="--Select Patient--" class="form-control"
+                                                        multiple [(value)]="selectedEventType">
+                                                        <mat-select-trigger>
+                                                            {{selectedEventType || '--Select Patient--'}}
+                                                        </mat-select-trigger>
+                                                        <mat-form-field *ngIf="eventTypes.length > 1" appearance="fill"
+                                                            style="width: 100%;">
+                                                            <input matInput (input)="applyFilter($event)"
+                                                                placeholder="Search">
+                                                        </mat-form-field>
+                                                        <mat-option *ngFor="let event of filteredEventTypes"
+                                                            [value]="event">
+                                                            {{event}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-4 pull-right">
+                                                <a (click)="filterToggle = !filterToggle" class="pull-right"
+                                                    style="font-size: 25px; cursor: pointer; margin-left: 5px">
+                                                    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                                                </a>
+                                                <button mat-raised-button color="primary" class="pull-right"
+                                                    style="background-color: #007BFF !important; color:white;">
+                                                    Search
+                                                </button>
+
+                                                <button mat-raised-button
+                                                    class="pull-right btn-default margin-right-10">
+                                                    Clear
+                                                </button>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" *ngIf="isCardView">
+                        <!-- Existing Cards -->
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Pending Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks; let i = index">
+
+                                <mat-card class="progress-card" *ngIf="i != 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                            <!-- Add icon and text only for the first card -->
+                                            <ng-container *ngIf="i === 0">
+                                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                                    <mat-icon>info</mat-icon>
+                                                    <span style="margin-left: 5px;">Some additional text or
+                                                        information</span>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+                                <mat-card class="progress-card" *ngIf="i === 0">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername" style="color: red;">{{ task.providername
+                                                }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- In-Progress Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of inProgressTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+
+
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Completed Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of completedTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer"><circle-progress
+                                            [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">Document 3 | Due Date
+                                                : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <!-- Complaint Tasks -->
+                            <div class="col-sm-3" *ngFor="let task of complaintTasks">
+                                <mat-card class="progress-card">
+                                    <div class="col-sm-12 pull-right"><mat-icon (click)="opencasedialog()"
+                                            class="pull-right" style="color: blue;cursor:pointer;">edit</mat-icon></div>
+                                    <div (click)="redirect1()" style="cursor:pointer">
+                                        <circle-progress [percent]="task.percent" [radius]="50" [outerStrokeWidth]="10"
+                                            [innerStrokeWidth]="5" [outerStrokeColor]="task.color"
+                                            [innerStrokeColor]="task.innerColor" [animation]="true"
+                                            [animationDuration]="300">
+                                        </circle-progress>
+
+                                        <div class="progress-details">
+                                            <div class="progress-name">{{ task.name }}</div>
+                                            <div class="progress-providername">{{ task.providername }}</div>
+                                            <div class="progress-status" style="cursor: pointer;">
+                                                Document 3 | Due Date : 20-12-2022
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-card>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-sm-12" *ngIf="!isCardView">
+                        <div fxLayout="row wrap">
+                            <div class="w-100">
+                                <div fxLayout="row wrap" style="margin-top:-3px;">
+                                    <div class="table-responsive w-100 flex-p" id="divTable">
+                                        <table matSort id="example2" class="table table-bordered table-hover">
+                                            <thead class="tbl-head">
+                                                <tr>
+                                                    <th>CAPA Reference</th>
+                                                    <th>Audit Reference</th>
+                                                    <th>Audit Type</th>
+                                                    <th>Commodity</th>
+                                                    <!-- <th>Parts Family</th> -->
+                                                    <th class="text-center" style="width: 70px;">Docs</th>
+                                                    <th>Auditor Remarks</th>
+                                                    <th>Auditee Response</th>
+                                                    <th>CAPA Date</th>
+                                                    <th>Due Date</th>
+                                                    <!-- <th>Color</th> -->
+                                                    <th class="text-center">Resolved</th>
+                                                    <th class="text-center">Done</th>
+                                                    <!-- <th class="text-center">Status</th> -->
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of values1">
+                                                    <td>
+                                                        CAPA/2024/18108
+                                                    </td>
+                                                    <td>{{item.auditReference}}</td>
+                                                    <td>{{item.auditType}}</td>
+                                                    <td>{{item.commodity}}</td>
+                                                    <!-- <td>{{item.partsFamily}}</td> -->
+                                                    <td class="text-center" (click)="openDocs()"
+                                                        style="color: blue; cursor: pointer;">2</td>
+                                                    <!-- Eye icon for notes -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.notes}}" matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue ;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+
+                                                    <!-- Eye icon for description -->
+                                                    <td class="text-center">
+                                                        <span matTooltip="{{item.description}}"
+                                                            matTooltipPosition="above">
+                                                            <mat-icon
+                                                                style="cursor: pointer; color: blue;">info</mat-icon>
+                                                        </span>
+                                                    </td>
+                                                    <td>{{item.issueDate}}</td>
+                                                    <td>{{item.dueDate}}</td>
+                                                    <!-- <td>{{item.color}}</td> -->
+                                                    <td class="text-center">
+                                                        <mat-checkbox></mat-checkbox>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+                                                    </td>
+                                                    <!-- <td><a [ngStyle]="{'color': item.status ? 'blue' : 'red','cursor':'pointer'}" placement="left"
+                                                                    (click)="item.status=!item.status; saveStatus()">
+                                                                    {{item.status ? 'Active' : 'Inactive'}}
+                                                                </a>
+                                                            </td> -->
+                                                    <td class="text-center editDel">
+                                                        <a style="cursor: pointer;" matTooltip="Edit"
+                                                            (click)="addParameter(item)">
+                                                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                                                        </a>
+                                                        <a style="cursor: pointer;" matTooltip="Delete"
+                                                            (click)="deleteParameter(item)">
+                                                            <i class="fa fa-trash red"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage"
+                                        [pageSize]="" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                                        showFirstLastButtons></mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+</div>

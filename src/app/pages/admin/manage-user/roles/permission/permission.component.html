@@ -1,0 +1,82 @@
+<div fxLayout="row wrap">
+    <div class="col-12">
+        <button mat-raised-button class="pull-right btn-default margin-right-10" (click)="goback()">
+            <mat-icon>arrow_back_ios</mat-icon> Back
+        </button>
+
+
+        <button (click)="previous()" mat-raised-button class="pull-right btn-default margin-right-10">
+            <mat-icon>keyboard_backspace</mat-icon> Previous
+        </button>
+
+
+
+        <button (click)="next()" mat-raised-button class="pull-right btn-default margin-right-10">
+            <mat-icon>arrow_right_alt</mat-icon> Next
+        </button>
+        <button mat-raised-button color="primary" class="pull-right  margin-right-10" (click)="saveUserPermissions()">
+            <mat-icon>save</mat-icon> Save
+        </button>
+
+    </div>
+
+    <div class="col-3">
+        <div class="pills">
+            <ul class="nav nav-pills" style="margin-top:12px; margin-left: 10px; margin-bottom:25px;">
+                <li *ngFor="let item of modules" class="col-12"
+                    [ngClass]="{'active' : selectedModule.name === item.name}">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px; width: 280px; text-align: left;"
+                        (click)="selectedModule = item">
+                        {{item.name}}
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="table-responsive flex-p">
+
+
+            <!--   <p style="margin-top: 20px; margin-left: 3px;"><b>Role Name: </b>{{roleName}}</p> -->
+            <table id="example2" class="table table-bordered table-hover" style="margin-top: 15px;">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Screen Permissions</th>
+                        <th class="style">Create</th>
+                        <th class="style">Read</th>
+                        <th class="style">Update</th>
+                        <th class="style">Delete</th>
+                        <th class="style">Misc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of selectedModule?.screens">
+                        <td>{{item?.screenName}}</td>
+                        <td class="style"><input type="checkbox">
+                        </td>
+                        <td class="style"><input type="checkbox">
+                        </td>
+                        <td class="style"><input type="checkbox">
+
+                        </td>
+
+                        <td class="style">
+                            <input type="checkbox">
+
+                        </td>
+                        <td *ngIf="item?.screenName=='Radar'||item?.screenName=='PRTS'">
+                            <mat-select class="form-control" placeholder="Select user" multiple>
+                                <mat-option *ngFor="let item of options" [value]="item.RoleId">
+                                    {{item?.RoleName}}</mat-option>
+                            </mat-select>
+                        </td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

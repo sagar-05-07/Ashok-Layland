@@ -1,0 +1,203 @@
+.s1 {
+    margin-left: 71%;
+}
+
+.margin {
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+.navtabWidth {
+    width: 300px;
+}
+
+.navtabWidth1 {
+    width: 150px;
+}
+
+td {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+th {
+    text-align: center !important;
+}
+
+.mine {
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    background-color: #e6e6e6 !important;
+}
+
+.pills>.nav>li.active>a {
+    background: #78caf7 !important;
+    color: #ffffff;
+}
+
+.pills>.nav>li>a:hover {
+    color: #ffffff;
+    background: #42aee8 !important;
+}
+
+.pills>.nav>li.active>a:hover {
+    color: #222222;
+    background: #32a8e8 !important;
+}
+
+
+.switchToggle input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.switchToggle label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 100px;
+    max-width: 100px;
+    height: 30px;
+    background: #d1d1d1;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.switchToggle label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+//   .switchToggle input:checked+label,
+//   .switchToggle input:checked+input+label {
+//       background: #3e98d3;
+//   }
+
+.switchToggle input+label:before,
+.switchToggle input+input+label:before {
+    content: 'Grid';
+    position: absolute;
+    top: 5px;
+    left: 35px;
+    width: 26px;
+    height: 26px;
+    border-radius: 90px;
+    transition: 0.3s;
+    text-indent: 0;
+    color: #fff;
+}
+
+.switchToggle input:checked+label:before,
+.switchToggle input:checked+input+label:before {
+    content: 'Image';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 26px;
+    height: 26px;
+    border-radius: 90px;
+    transition: 0.3s;
+    text-indent: 0;
+    color: #fff;
+}
+
+.switchToggle input:checked+label:after,
+.switchToggle input:checked+input+label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+}
+
+.switchToggle label:active:after {
+    width: 60px;
+}
+
+.toggle-switchArea {
+    margin: 10px 0 10px 0;
+}
+
+.img {
+    height: 400px;
+}
+
+.color-line {
+    position: relative;
+    padding-right: 20px;
+    /* Space for the colored line */
+}
+
+.color-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Position the line at the far right edge */
+    height: 100%;
+    /* Full height of the button */
+    width: 6px;
+    /* Thickness of the line */
+    background-color: transparent;
+    /* Default color */
+    border-radius: 0;
+    /* Remove rounding */
+}
+
+/* Define color lines for each condition */
+.red-line::after {
+    background-color: red;
+    /* Full-height red line */
+}
+
+.green-line::after {
+    background-color: green;
+    /* Full-height green line */
+}
+
+.yellow-line::after {
+    background-color: yellow;
+    /* Full-height yellow line */
+}
+
+
+.inner-card {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    height: 100px;
+    width: 100px;
+}
+
+.inner-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inner-card:hover {
+    transform: translateY(-5px);
+    /* Move the card up slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Add a shadow */
+}
+
+.inner-card img {
+    transition: transform 0.2s ease;
+}
+
+.inner-card:hover img {
+    transform: scale(1.1);
+    /* Slightly scale the image */
+}
+
+.custom-border {
+    border-width: 3px;
+    /* Adjust border size here */
+}

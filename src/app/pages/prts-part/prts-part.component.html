@@ -1,0 +1,140 @@
+<!-- <div class="col-sm-2">
+    <div class="row-wrap mb-10">
+        <div class="w-100" style="margin-bottom:10px">
+            <div class="col-xs-3" style="margin-top: 15px; padding-left: 0px;">
+                <div class="pills">
+                    <ul class="nav nav-pills" style="margin-left: 40px;">
+                        <li routerLinkActive="active" routerLink="./prtsdashboard">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Dash Board
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="./prtsnewissue">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                New Issue
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="./grid-one">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Issue Status
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="./prts-d-role">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Setup
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="./new-alerts">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Alerts (3)
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="./new-archive">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Archives
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="checkpoint-master">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                Reports
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="checkpoint-master">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                User Manual
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" routerLink="par-monthly-target">
+                            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                                IT Help Desk
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-sm-10">
+
+    <router-outlet></router-outlet>
+</div> -->
+
+<mat-sidenav-container style="overflow-y: scroll;">
+    <mat-sidenav [opened]="isOpen" [mode]="(isOpen) ? 'side' : 'over'" #sidenav class="sidenav mat-elevation-z6">
+        <div class="pills">
+            <ul class="nav nav-pills" style="margin-left: 4px;">
+                <li routerLinkActive="active" routerLink="./prtsdashboard">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Dash Board
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="./newissue">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        New Issue
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="./prtsissuestatus">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Issue Status
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="./prts-d-role">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Setup
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="./new-alerts">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Alerts (3)
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="./new-archive">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Archives
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="checkpoint-master">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Reports
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="checkpoint-master">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        User Manual
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="par-monthly-target">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        IT Help Desk
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content id="main">
+        <mat-toolbar style="background: #fff;" class="flex-p-x">
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button mat-icon-button (click)="toggleSidenav()" style="margin-left: 10px;">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+
+            </div>
+        </mat-toolbar>
+        <div>
+
+
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+
+
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

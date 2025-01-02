@@ -1,0 +1,47 @@
+.NewHeader {
+    text-align: center;
+    color: white;
+    background: #229494;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+
+
+.instruction-text {
+    margin-bottom: 20px;
+}
+
+.container {
+    padding: 10px;
+}
+
+.form-control {
+    height: 200px;
+    margin: 0 10px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.mat-dialog-actions button {
+    margin-left: 10px;
+}
+
+.mat-icon {
+    margin-right: 5px;
+}

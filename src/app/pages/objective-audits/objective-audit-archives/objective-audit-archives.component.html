@@ -1,0 +1,115 @@
+<div class="row" style="margin-top: 15px">
+  <div class="col-lg-4">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-subtitle>
+        <h2>Commodity Distribution</h2>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="w-100 h-300p">
+      <ngx-charts-pie-chart [scheme]="colorScheme" [results]="single" [legend]="showLegend"
+        [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-subtitle>
+        <h2>Auditor Distribution</h2>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="w-100 h-300p">
+      <ngx-charts-pie-chart [scheme]="colorScheme" [results]="multi" [legend]="showLegend"
+        [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-subtitle>
+        <h2>Audits Status</h2>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="w-100 h-300p">
+      <ngx-charts-pie-chart [scheme]="colorScheme" [results]="triple" [legend]="showLegend"
+        [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-12">
+  <!-- <button mat-raised-button color="primary" class="pull-right mb-3" (click)="addParameter(null)">
+    <mat-icon>person_add</mat-icon> Add Audit
+  </button> -->
+
+  <button mat-raised-button style="background-color: black; color: white; margin-right: 10px;" class="pull-right mb-3">
+    <mat-icon>filter_list</mat-icon> Filter
+  </button>
+
+  <button mat-raised-button style="background-color: black; color: white; margin-right: 10px;" class="pull-right mb-3"
+    (click)="gridview(null)">
+    <mat-icon>grid_on</mat-icon> Grid View
+  </button>
+
+  <div id="grid-table-container">
+    <table matSort id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+        <tr>
+          <th class="text-center">Audit Reference</th>
+          <th>Commodity</th>
+          <th>Location</th>
+          <th>Supplier</th>
+          <th>Auditor</th>
+          <th>Audit Date</th>
+          <th>Part Family</th>
+          <th class="text-center">Actions</th>
+          <th class="text-center">Score</th>
+          <th style="width: 140px;" class="text-center">Status</th>
+          <th class="text-center">Done</th>
+          <!-- <th class="text-center">Manage</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of values1">
+          <td style="color: blue; cursor: pointer;" class="text-center" (click)="opendashboard()">
+            {{item.auditReference}}</td>
+          <td>{{item.commodityCasting}}</td>
+          <td>{{item.location}}</td>
+          <td>{{item.supplier}}</td>
+          <td>{{item.auditor}}</td>
+          <td>{{item.auditDate}}</td>
+          <td>Engine Components</td>
+          <td style="color: blue; cursor: pointer;" class="text-center" class="text-center">
+            3/4</td>
+
+
+          <td style="color: blue; cursor: pointer;" class="text-center" (click)="opendashboard()" class="text-center">
+            {{item.score}} %</td>
+          <td style="text-align: center!important;">
+            <mat-select [(value)]="item.status" placeholder="Select Status" class='form-control'>
+              <ng-container *ngFor='let option of statusOptions'>
+                <mat-option class='option' [value]="option.value">{{option.name}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </td>
+          <td class="text-center">
+            <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+          </td>
+          <!-- <td class="text-center editDel">
+            <a style="cursor: pointer;" matTooltip="Edit" (click)="addParameter(item)">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+            </a>
+            <a style="cursor: pointer;" matTooltip="Delete" (click)="deleteAudit(item)">
+              <i class="fa fa-trash red"></i>
+            </a>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator [length]="4" [pageIndex]="0" [pageSize]="4" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+      showFirstLastButtons></mat-paginator>
+  </div>
+</div>

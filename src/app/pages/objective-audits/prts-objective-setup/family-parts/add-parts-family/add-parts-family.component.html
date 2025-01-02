@@ -1,0 +1,22 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+        {{data ? 'Update' : 'Add'}} Parts Family
+    </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Parts Family Name : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter Parts Family Name">
+            </div>
+        </div>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="btn-primary" [mat-dialog-close]="'test'"> <mat-icon>send</mat-icon>
+        <span>{{ data ? 'Update' : 'Save'}}</span></button>
+    <button mat-raised-button class="add-dark-hover btn-default"
+        (click)="close()"><mat-icon>cancel</mat-icon>Close</button>
+</mat-dialog-actions>

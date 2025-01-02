@@ -1,0 +1,58 @@
+.s {
+    width: 16% !important;
+    background-color: rgb(246, 252, 252);
+}
+
+.s2 {
+    // width: 10% !important;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 8% !important;
+    height: 10%;
+}
+
+.d {
+    margin-left: 1.5%;
+
+}
+
+//.col {
+// background-color: rgb(243, 241, 241);
+
+
+//}
+
+.col-lg {
+    padding: 1.5%;
+    margin-bottom: 2% !important;
+}
+
+.s1 {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.margin {
+    margin-left: -23px;
+}
+
+.rec {
+    width: 60px;
+    color: white;
+    margin-bottom: 4px;
+    margin-right: -10px;
+}
+
+.float-vertical-align {
+    position: absolute;
+    top: 90%;
+    right: 4%;
+    transform: translateY(-50%);
+}
+
+.margin{
+        display: flex;
+        justify-content: center;
+        margin-left: 80px;
+        box-sizing: border-box;
+}

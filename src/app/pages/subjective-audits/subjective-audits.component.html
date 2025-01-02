@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav [opened]="isOpen" [mode]="(isOpen) ? 'side' : 'over'" #sidenav class="sidenav mat-elevation-z6">
+        <div class="pills">
+            <ul class="nav nav-pills">
+                <li routerLinkActive="active" routerLink="process-analytics">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Analytics
+                    </a>
+                </li>
+                <!-- <li routerLinkActive="active" routerLink="subjective-reports">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Analytics
+                    </a>
+                </li> -->
+                <li routerLinkActive="active" routerLink="./prtsnewissue">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;" (click)="addParameter(null)">
+                        New Audit
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="subjective-audits-issues-status">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Active Audits
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="prts-subjective-setup">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Setup
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="subjective-alerts">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Alerts (8)
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="subjective-audit-archives">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Completed Audits
+                    </a>
+                </li>
+                <li routerLinkActive="active" routerLink="capa">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                        Actions
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;"
+                        href="../../../../../assets/sample.pdf" target="_blank">
+                        User Manual
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button class="navtabWidth" style="margin-top: 10px;" (click)="itHelpDeskPop(null)">
+                        IT Help Desk
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content id="main">
+        <mat-toolbar style="background: rgb(250, 247, 247); margin-left: 8px;" class="flex-p-x">
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button mat-icon-button (click)="toggleSidenav()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-toolbar>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

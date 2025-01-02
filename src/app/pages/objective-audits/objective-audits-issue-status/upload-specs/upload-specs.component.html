@@ -1,0 +1,41 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+        Upload Specs
+        <button mat-icon-button (click)="onClose()" style="float: right;">
+            <mat-icon>close</mat-icon>
+        </button>
+    </h1>
+</div>
+
+<div class="col-sm-12 upload-container">
+    <!-- <h4 class="upload-title">
+        AUTH Form (Mandatory)
+        <div class="actions">
+            <a style="cursor: pointer;" (click)="viewAuth()">View</a>
+            <mat-icon class="delete-icon" (click)="removeFiles('auth')">delete</mat-icon>
+        </div>
+    </h4> -->
+    <div class="row">
+        <p style="font-size: 15px;">Upload Specs for Parts Revalidation (Reference: 2024/Parts/12334)</p>
+    </div>
+
+    <div class="upload-box auth-form">
+        <div class="dropzone" (drop)="onDrop($event, 'auth')" (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)">
+            <p>Drag and drop files here, or click to select files</p>
+            <input type="file" multiple (change)="onFileSelected($event, 'auth')" style="display: none;" #authInput>
+            <button type="button" class="btn btn-primary" (click)="authInput.click()">Browse Files</button>
+        </div>
+        <ul *ngIf="authFiles.length > 0" class="file-list">
+            <li *ngFor="let file of authFiles" class="file-item">
+                <span class="file-name">{{ file.name }}</span>
+                <div class="file-actions">
+                    <a style="cursor: pointer; color: blue; padding: 5px;" (click)="viewFile(file)">View</a>
+                    <a style="cursor: pointer;" matTooltip="Delete" (click)="removeSingleFile(file, 'auth')">
+                        <i class="fa fa-trash red"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

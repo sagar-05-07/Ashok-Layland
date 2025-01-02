@@ -1,0 +1,517 @@
+<div class="col-sm-12" style="margin-left: -15px;">
+    <div class="pills">
+        <ul class="nav nav-pills">
+            <li routerLink="sealing">
+                <a [ngStyle]="{'background-color': isChecked1 === 'yes' ? '#D3D3D3' : '#099FF0' , 'color': isChecked1 === 'yes' ? 'black': 'white'}"
+                    (click)="color1()" mat-raised-button class="navtabWidth1">
+                    CAT A (4)
+                </a>
+            </li>
+            <li routerLink="matching">
+                <a [ngStyle]="{'background-color': isChecked2 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked2 === 'yes' ? 'black': 'white'}"
+                    (click)="color2()" mat-raised-button class="navtabWidth1">
+                    CAT B (2)
+                </a>
+            </li>
+            <li routerLink="sealing">
+                <a [ngStyle]="{'background-color': isChecked3 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked3 === 'yes' ? 'black': 'white'}"
+                    (click)="color3()" mat-raised-button class="navtabWidth1">
+                    CAT C (5)
+                </a>
+            </li>
+            <li routerLink="matching">
+                <a [ngStyle]="{'background-color': isChecked4 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked4 === 'yes' ? 'black': 'white'}"
+                    (click)="color4()" mat-raised-button class="navtabWidth1">
+                    CAT D (4)
+                </a>
+            </li>
+            <li routerLink="sealing">
+                <a [ngStyle]="{'background-color': isChecked5 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked5 === 'yes' ? 'black': 'white'}"
+                    (click)="color5()" mat-raised-button class="navtabWidth1">
+                    CAT E (4)
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<div class="col-sm-3 mt-3" style="margin-left:-45px;">
+    <div class="col-sm-12">
+        <div class="row-wrap mb-10">
+            <div class="w-100" style="margin-bottom:10px">
+                <div class="col-xs-3" style="margin-bottom:100px;">
+                    <div class="pills">
+                        <ul class="nav nav-pills">
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked6 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked6 === 'yes' ? 'black': 'white'}"
+                                    (click)="color6()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Approved Drawing & Standards (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked7 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked7 === 'yes' ? 'black': 'white'}"
+                                    (click)="color7()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    DFM (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked8 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked8 === 'yes' ? 'black': 'white'}"
+                                    (click)="color8()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    PFD & PFMEA (3)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked9 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked9 === 'yes' ? 'black': 'white'}"
+                                    (click)="color9()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    CP & WIS (5)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked10 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked10 === 'yes' ? 'black': 'white'}"
+                                    (click)="color10()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Raw Material (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked11 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked11 === 'yes' ? 'black': 'white'}"
+                                    (click)="color11()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    Proprietary (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked12 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked12 === 'yes' ? 'black': 'white'}"
+                                    (click)="color12()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Raw Material Storage (3)
+                                </a>
+                            </li>
+
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked13 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked13 === 'yes' ? 'black': 'white'}"
+                                    (click)="color13()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Casting (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked14 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked14 === 'yes' ? 'black': 'white'}"
+                                    (click)="color14()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Machining Facilities (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked15 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked15 === 'yes' ? 'black': 'white'}"
+                                    (click)="color15()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    First off inspection (3)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked16 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked16 === 'yes' ? 'black': 'white'}"
+                                    (click)="color16()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Process Sheet (5)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked17 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked17 === 'yes' ? 'black': 'white'}"
+                                    (click)="color17()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Fixture Validation (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked18 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked18 === 'yes' ? 'black': 'white'}"
+                                    (click)="color18()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    WIP Material (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked19 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked19 === 'yes' ? 'black': 'white'}"
+                                    (click)="color19()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Work Force Skill level (3)
+                                </a>
+                            </li>
+
+
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked20 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked20 === 'yes' ? 'black': 'white'}"
+                                    (click)="color20()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Casting (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked21 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked21 === 'yes' ? 'black': 'white'}"
+                                    (click)="color21()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Poka Yoke For Critical Characteristics (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked22 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked22 === 'yes' ? 'black': 'white'}"
+                                    (click)="color22()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    Inspection & Facility (3)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked23 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked23 === 'yes' ? 'black': 'white'}"
+                                    (click)="color23()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Non-Metallic (5)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked24 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked24 === 'yes' ? 'black': 'white'}"
+                                    (click)="color24()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Process Capability & Control (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked25 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked25 === 'yes' ? 'black': 'white'}"
+                                    (click)="color25()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    Tool Life & Maintainance (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked26 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked26 === 'yes' ? 'black': 'white'}"
+                                    (click)="color26()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Machine Maintainance (3)
+                                </a>
+                            </li>
+
+
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked27 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked27 === 'yes' ? 'black': 'white'}"
+                                    (click)="color27()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Lab Testing Procedure (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked28 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked28 === 'yes' ? 'black': 'white'}"
+                                    (click)="color28()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Heat Treatment (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked29 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked29 === 'yes' ? 'black': 'white'}"
+                                    (click)="color29()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    Surface Protection (3)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked30 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked30 === 'yes' ? 'black': 'white'}"
+                                    (click)="color30()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Final Inspection (5)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked31 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked31 === 'yes' ? 'black': 'white'}"
+                                    (click)="color31()" mat-raised-button
+                                    class="navtabWidth color-line green-line text-start" style="margin-top: 10px;">
+                                    Rust Prevention (4)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked32 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked32 === 'yes' ? 'black': 'white'}"
+                                    (click)="color32()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    4M Change Management System (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked33 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked33 === 'yes' ? 'black': 'white'}"
+                                    (click)="color33()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Zero Km & Field Failures Analysis (3)
+                                </a>
+                            </li>
+
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked34 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked34 === 'yes' ? 'black': 'white'}"
+                                    (click)="color34()" mat-raised-button
+                                    class="navtabWidth color-line yellow-line text-start" style="margin-top: 10px;">
+                                    Performance Testing, If Applicable (1)
+                                </a>
+                            </li>
+                            <li routerLinkActive="active" routerLink="./prtsdashboard">
+                                <a [ngStyle]="{'background-color': isChecked35 === 'yes' ? '#D3D3D3' : '#099FF0', 'color': isChecked35 === 'yes' ? 'black': 'white'}"
+                                    (click)="color35()" mat-raised-button
+                                    class="navtabWidth color-line red-line text-start" style="margin-top: 10px;">
+                                    Communication (3)
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-sm-9 mt-5">
+    <div class="col-sm-6">
+        <label for="">Process Level Guidelines :</label>
+        <div class="card" style="background-color: rgb(192, 190, 190); height: 110px;">
+            <div class="card-body">
+                <p class="card-text">Process controls are partially inline with updated PFMEA, CC & SC are focused with
+                    post
+                    process detection. Referring the updated revision. WIS-Just defined the work instruction at local
+                    language
+                    (Customer inputs are captured in text).</p>
+            </div>
+        </div>
+
+        <div class="card" style="background-color: rgb(225, 240, 245); height: 110px;">
+            <div class="card-body">
+                <p class="card-text">Process controls are partially inline with updated PFMEA, CC & SC are focused with
+                    post
+                    process detection. Referring the updated revision. WIS-Just defined the work instruction at local
+                    language
+                    (Customer inputs are captured in text).</p>
+            </div>
+        </div>
+
+        <div class="card mb-1" style="background-color: rgb(192, 190, 190); height: 110px;">
+            <div class="card-body">
+                <p class="card-text">Process controls are not inline with updated PFMEA (AIAG guideline) Eg. CC & SC are
+                    inadequate controls. Referring the old revision. No clarity on work instruction at local language
+                    (Customer
+                    inputs are not captured).</p>
+            </div>
+        </div>
+
+
+
+        <label class="mt-4" for="">Rating :</label>
+        <div>
+            <button class="btn btn-outline-success me-4"
+                style="height: 60px; width: 70px; border-width: 5px;">5</button>
+            <button class="btn btn-outline-warning me-4" style="height: 60px; width: 70px; border-width: 5px;">3
+            </button>
+            <button class="btn btn-outline-danger me-4" style="height: 60px; width: 70px; border-width: 5px;">1</button>
+        </div>
+
+        <div class="form-group mt-3">
+            <label class="control-label col-sm-4 mt-1">Severity : </label>
+            <div class="col-sm-7">
+                <mat-select class="form-control" [value]="2" placeholder="Select Severity">
+                    <mat-option [value]="0">1</mat-option>
+                    <mat-option [value]="0">2</mat-option>
+                    <mat-option [value]="0">3</mat-option>
+                    <mat-option [value]="0">4</mat-option>
+                    <mat-option [value]="0">5</mat-option>
+                    <mat-option [value]="0">6</mat-option>
+                    <mat-option [value]="0">7</mat-option>
+                    <mat-option [value]="2">8</mat-option>
+                    <mat-option [value]="0">9</mat-option>
+                    <mat-option [value]="0">10</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label class="control-label col-sm-4 mt-4">Occurrence : </label>
+            <div class="col-sm-7">
+                <mat-select class="form-control mt-3" [value]="2" placeholder="Select Occurrence">
+                    <mat-option [value]="0">1</mat-option>
+                    <mat-option [value]="0">2</mat-option>
+                    <mat-option [value]="0">3</mat-option>
+                    <mat-option [value]="2">4</mat-option>
+                    <mat-option [value]="0">5</mat-option>
+                    <mat-option [value]="0">6</mat-option>
+                    <mat-option [value]="0">7</mat-option>
+                    <mat-option [value]="0">8</mat-option>
+                    <mat-option [value]="0">9</mat-option>
+                    <mat-option [value]="0">10</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label class="control-label col-sm-4 mt-4">Detection : </label>
+            <div class="col-sm-7">
+                <mat-select class="form-control mt-3" [value]="2" placeholder="Select Detection">
+                    <mat-option [value]="0">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="0">3</mat-option>
+                    <mat-option [value]="0">4</mat-option>
+                    <mat-option [value]="0">5</mat-option>
+                    <mat-option [value]="0">6</mat-option>
+                    <mat-option [value]="0">7</mat-option>
+                    <mat-option [value]="0">8</mat-option>
+                    <mat-option [value]="0">9</mat-option>
+                    <mat-option [value]="0">10</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">SOD Score : </label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control mt-3" value="842" disabled>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">Risk Rating : </label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control mt-3" style="background-color: red; color: white;" value="High"
+                    disabled>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">Upload PDF : </label>
+            <div class="col-sm-7">
+                <input type="file" class="form-control mt-3">
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">Select Due Date : </label>
+            <div class="col-sm-7">
+                <input type="date" class="form-control mt-3">
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">Select Completed Date : </label>
+            <div class="col-sm-7">
+                <input type="date" class="form-control mt-3">
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label class="control-label col-sm-4 mt-4">PDCA Status : </label>
+            <div class="col-sm-7">
+                <mat-select class="form-control mt-3" placeholder="Select PDCA Status">
+                    <mat-option [value]="0">Root cause Analysis under progress</mat-option>
+                    <mat-option [value]="0">Root cause Analyzed & C/M identified</mat-option>
+                    <mat-option [value]="0">C/M under implementation</mat-option>
+                    <mat-option [value]="0">Closed</mat-option>
+                </mat-select>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;" *ngIf="!isResolved">
+            <label class="control-label col-sm-4 mt-1">
+                Mark as Resolved:
+            </label>
+            <div class="col-sm-7 mt-3">
+                <!-- Initial Checkbox to mark as resolved -->
+                <mat-checkbox [(ngModel)]="isResolved"></mat-checkbox>
+            </div>
+        </div>
+
+        <!-- Conditional block that shows only when 'isResolved' is true -->
+        <div class="form-group" style="margin-top: 10px;" *ngIf="isResolved">
+            <label class="control-label col-sm-4 mt-1" style="color: green;">
+                Resolved
+            </label>
+            <div class="col-sm-7 mt-3">
+                <!-- Optional checkbox displayed when the first checkbox is checked -->
+                <mat-checkbox [(ngModel)]="isResolved"></mat-checkbox>
+            </div>
+        </div>
+
+
+        <div class="form-group mt-3">
+            <label class="control-label col-sm-4 mt-4">Action Type : </label>
+            <div class="col-sm-7">
+                <mat-select class="form-control mt-3" placeholder="Select Action Type">
+                    <mat-option [value]="0">Important</mat-option>
+                    <mat-option [value]="0">Pending</mat-option>
+                    <mat-option [value]="0">Process</mat-option>
+                    <mat-option [value]="0">Closed</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <label class="control-label col-sm-4 mt-4">Observations : </label>
+            <textarea class="form-control" rows="5" style="margin-left: 10px;"
+                placeholder="Enter Observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-4">Corrective Actions : </label>
+            <textarea class="form-control" rows="5" style="margin-left: 10px;"
+                placeholder="Enter Corrective Actions..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-4">Supplier Remarks : </label>
+            <textarea class="form-control" rows="5" style="margin-left: 10px;"
+                placeholder="Enter Remarks..."></textarea>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm-9">
+    <mat-card style="margin-left: 15px; background-color: rgb(236, 234, 234); display: flex; flex-direction: row;">
+        <mat-card class="inner-card" (click)="fileInput.click()"
+            style="margin: 5px; background-color: rgb(20, 19, 19); cursor: pointer; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+            <mat-icon style="color: white;">add</mat-icon>
+        </mat-card>
+        <mat-card class="inner-card"
+            style="margin: 5px; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+            (click)="openImageDialog('assets/img8.jpg')">
+            <img alt="logo" class="logo-default logo-img box-content-center" style="height: 80px; cursor: pointer;"
+                src="assets/img8.jpg">
+        </mat-card>
+        <mat-card class="inner-card" style="margin: 5px;" (click)="openImageDialog('assets/img12.jpeg')">
+            <img alt="logo" class="logo-default logo-img box-content-center" style="height: 80px; cursor: pointer;"
+                src="assets/img12.jpeg">
+        </mat-card>
+        <mat-card class="inner-card" style="margin: 5px;" (click)="openImageDialog('assets/img13.jpg')">
+            <img alt="logo" class="logo-default logo-img box-content-center" style="height: 80px; cursor: pointer;"
+                src="assets/img13.jpg">
+        </mat-card>
+        <mat-card class="inner-card"
+            style="margin: 5px; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+            (click)="openImageDialog('assets/img11.jpg')">
+            <img alt="logo" class="logo-default logo-img box-content-center" style="height: 80px; cursor: pointer;"
+                src="assets/img11.jpg">
+        </mat-card>
+        <mat-card class="inner-card" style="margin: 5px;" (click)="openImageDialog('assets/img5.jpg')">
+            <img alt="logo" class="logo-default logo-img box-content-center" style="height: 80px; cursor: pointer;"
+                src="assets/img5.jpg">
+        </mat-card>
+    </mat-card>
+
+    <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)">
+</div>
+
+
+
+
+
+<div class="mt-5 col-sm-9">
+    <button mat-raised-button class="pull-right" style="background-color: green; color: white; width: 90px;">
+        Save
+    </button>
+</div>

@@ -1,0 +1,49 @@
+<div class="flex-p" style="margin-top: -10px; margin-bottom: 10px; overflow:hidden !important;">
+  <div class="row wrap" style="overflow:hidden !important;">
+    <div class="col-sm-12 pull-right">
+      <button mat-raised-button class="pull-right btn-primary" (click)="addnotes()">
+        <mat-icon>message</mat-icon> Add Notes
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div fxLayout="row wrap" style="margin-top:10px;padding: 0px 5px 0px 5px;" style="overflow: hidden !important;">
+    <div class="w-100 flex-p" style="overflow: hidden !important;">
+  <mgl-timeline [alternate]="alternate" style="overflow: hidden !important;">
+    <mgl-timeline-entry *ngFor="let entry of entries; let i = index;" (expand)="onExpandEntry($event, i)">
+        <mgl-timeline-entry-header [class]='entry.headerClass' (click)="onHeaderClick($event)">
+            <div style="margin-bottom:10px;"><i class="{{entry.element}}"
+                    style="float: left">&nbsp;&nbsp;&nbsp;</i><b
+                    style="float: left">{{entry.header}}</b>&nbsp;&nbsp;&nbsp;&nbsp;<b
+                    style="float: right">{{entry.date}}</b></div>
+            <div>
+              <p class="contentfont">Auditor:{{entry.Auditor}}</p>
+              <p class="contentfont">Checkpoint:{{entry.Checkpoint}}</p>
+              <p class="contentfont">Issue:{{entry.issue}}</p>
+              <p class="contentfont">Model:{{entry.model}}</p><br>
+                <p class="left-alignment " style="font-size: 19px; font-family: Libre Baskerville, serif;"><i class="{{entry.dataelement}}"
+                        style="float: left"></i>{{entry.content}}</p>
+                        
+            </div>
+        </mgl-timeline-entry-header>
+  
+        <mgl-timeline-entry-dot [class]="entry.class" [size]="size" (click)="onDotClick($event)">
+        </mgl-timeline-entry-dot>
+      
+    </mgl-timeline-entry>
+  </mgl-timeline>
+    </div>
+  </div> -->
+<!-- <button style="margin-bottom: 7px" mat-raised-button class="pull-right  btn bg-purple margin-right-5 mt-3"  (click)="command(null)">
+                            <mat-icon >youtube_searched_for</mat-icon> Edit
+                            </button> -->
+<!-- <mgl-timeline-entry-side>2018</mgl-timeline-entry-side> -->
+
+<div class="col-6" *ngFor="let entry of entries">
+  <p>{{entry.Auditor}} ,&nbsp;&nbsp;&nbsp;&nbsp;{{entry.date}}&nbsp;&nbsp;&nbsp;&nbsp;<b>{{entry.prblm}}</b></p>
+  <!-- <p> Issue:{{entry.issue}} <br> Model:{{entry.model}} <br> -->
+  <p> Description : {{entry.content}}</p>
+  <hr>
+
+</div>

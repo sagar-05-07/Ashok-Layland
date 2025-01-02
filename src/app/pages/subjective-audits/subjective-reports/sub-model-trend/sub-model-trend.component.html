@@ -1,0 +1,139 @@
+<!-- Table div-->
+
+<div class="col-sm-12 chart-header text-center">
+    <mat-card>
+        <h3>Demerit Distribution by Model Trend</h3>
+    </mat-card>
+</div>
+
+<div class="col-sm-12 mt-4" fxLayout="row wrap" style="margin-bottom: 10px; margin-left: -10px;">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+        <mat-card class="filter">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Select Period:
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Select Period">
+                                <mat-option [value]="0">Last 2 Years</mat-option>
+                                <mat-option [value]="1">Last 3 Years</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Audit Type:
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Select Audit Type" required>
+                                <mat-option [value]="0">Product Quality Audit</mat-option>
+                                <mat-option [value]="1">Body Audit</mat-option>
+                                <mat-option [value]="2">Paint Audit</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            From Date:
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div style="margin-top:10px">
+                        <div class="col-sm-4">
+                            <div class="col-sm-4 newMarginClass">
+                                To Date:
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top:10px !important">
+                            <div>
+                                <button mat-raised-button class="pull-right   btn-success ">
+                                    GO
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div id="grid-table-container" class="table-responsive mt-4">
+        <table matSort id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th class="text-center">Model</th>
+                    <th class="text-center">Demerit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                    <td class="text-center">{{item.model }}</td>
+                    <td class="text-center">{{item.demerit }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Total</td>
+                    <td class="text-center">55%</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="col-sm-6 text-center">
+    <div fxLayout="column" fxLayout.gt-sm="row wrap">
+        <div fxFlex="100" class="flex-p">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-subtitle>
+                        <h2>Demerit Distribution by Model</h2>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-bar-vertical [scheme]="colorScheme" [gradient]="gradient" [xAxis]="showXAxis"
+                        [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                        [results]="second">
+                    </ngx-charts-bar-vertical>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<!-- Pie charts div-->
+<div class="row col-12 mt-5">
+    <!-- Pie chart by checkpoints -->
+    <!-- <div class="col-sm-6 text-center">
+            <mat-card>
+                <div class="chart-header">
+                    <h4>Distribution by Checkpoints</h4>
+                </div>
+                <ngx-charts-pie-chart [scheme]="colorScheme" [results]="first" [explodeSlices]="explodeSlices"
+                    [legend]="showLegend" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+                </ngx-charts-pie-chart>
+            </mat-card>
+        </div> -->
+    <!-- Pie chart by compilance -->
+    <!-- <div class="col-6 text-center">
+            <mat-card>
+                <div class="chart-header">
+                    <h4>Distribution by Compilance</h4>
+                </div>
+                <ngx-charts-pie-chart [scheme]="colorScheme" [results]="three" [explodeSlices]="explodeSlices"
+                    [legend]="showLegend" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+                </ngx-charts-pie-chart>
+            </mat-card>
+        </div> -->
+</div>

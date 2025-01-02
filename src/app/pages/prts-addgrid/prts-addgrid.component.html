@@ -1,0 +1,562 @@
+<button mat-raised-button (click)="goback()" class=" pull-right mb-10 " type="button"
+    style="color: rgb(7, 10, 7); background-color: #e0e0e0; margin-right: 10px;margin-bottom: 30px;margin-right: 25px;">
+    <mat-icon>fast_rewind</mat-icon>Back
+</button>
+
+
+
+<div style="margin-left:25px ;">
+    <h1 mat-dialog-title>
+        Add New Request
+    </h1>
+</div>
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-6 col-sm-6">
+            <div class="row">
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">PRTS No. : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="51155DVHS5">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">Issue Title : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" EnterIssue Title">
+                    </div>
+                </div>
+
+
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label"> Issue Description: </label>
+                    <div class="col-lg-8 ">
+                        <textarea type="text" class="form-control" style="height: 80px; "
+                            placeholder="Enter Description" required></textarea>
+
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">Assigned Date: </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter Date">
+                        <!-- <input class="form-control" placeholder="MM/DD/YYYY" (keypress)="false"
+                            [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2"> -->
+                        <!-- <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time> -->
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">Source : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter Source">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">Raiser Name : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter Raiser Name">
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">Raiser Department: </label>
+                    <div class="col-lg-8 ">
+                        <mat-select class="form-control" placeholder="Select Model" required>
+                            <mat-option [value]="0">GA</mat-option>
+                            <mat-option [value]="1">Paint</mat-option>
+
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">VIN : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter VIN">
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">New Project : </label>
+                    <div class="col-lg-8">
+                        <div class="col-lg-4 newMarginClass">
+                            <input type="checkbox" name="test"
+                                [checked]="currentlyChecked === check_box_type.APPLY_FOR_JOB"
+                                (click)="selectCheckBox(check_box_type.APPLY_FOR_JOB)"> &nbsp;&nbsp; YES
+                        </div>
+
+                        <div class="col-lg-4 newMarginClass">
+                            <input class="col-lg-4 newMarginClass" type="checkbox" name="test"
+                                [checked]="currentlyChecked === check_box_type.MODIFY_A_JOB"
+                                (click)="selectCheckBox(check_box_type.MODIFY_A_JOB)">&nbsp;&nbsp; NO
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label"> Project Code/Name: </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter  Project Code/Name">
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">Model: </label>
+                    <div class="col-lg-8 ">
+                        <mat-select class="form-control" placeholder="Select Model" required>
+                            <mat-option [value]="0">Hector</mat-option>
+                            <mat-option [value]="1">Astor</mat-option>
+                            <mat-option [value]="2">Gloster</mat-option>
+                            <mat-option [value]="4">EV</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">Variant: </label>
+                    <div class="col-lg-8">
+                        <mat-select class="form-control" placeholder="Select Variant" required>
+                            <mat-option [value]="0">VDI</mat-option>
+                            <mat-option [value]="1">SXI</mat-option>
+                            <mat-option [value]="2">LDI</mat-option>
+                        </mat-select>
+
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">Issue Severity: </label>
+                    <div class="col-lg-8 ">
+                        <mat-select class="form-control" placeholder="Select Severity" required>
+                            <mat-option [value]="0">Hight</mat-option>
+                            <mat-option [value]="1">Medium</mat-option>
+                            <mat-option [value]="2">Low</mat-option>
+
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <label class="col-lg-4">Category: </label>
+                    <div class="col-lg-8">
+                        <mat-select class="form-control" placeholder="Select Category" required>
+                            <mat-option [value]="0">Category-1</mat-option>
+                            <mat-option [value]="1">Category-2</mat-option>
+                            <mat-option [value]="2">Category-3</mat-option>
+                        </mat-select>
+
+                    </div>
+                </div>
+
+                <div class="form-group  ">
+                    <label class="col-lg-4">Repeat Issue : </label>
+                    <div class="col-lg-8">
+                        <mat-checkbox class="col-lg-4 newMarginClass" (change)="repeted($event)">Repeat Issue
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+
+                <div class="form-group " *ngIf=" isRepeted">
+                    <label class="col-lg-4 control-label"> Enter PRTS Reference : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Enter   PRTS Reference ">
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+        <div class="col-lg-6 col-sm-6 ">
+
+            <div class="row">
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">1. What : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter What">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">2. Where : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter Where">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">3. When : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter When">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">4. Who : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter Who">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">5. Why : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter Why">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">6. How Much : </label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder=" Enter How Much ">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-lg-4 control-label">Assigned to : </label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder=" Enter Name ">
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-select class="form-control" placeholder="Select Department" required>
+                            <mat-option [value]="0">Hector</mat-option>
+                            <mat-option [value]="1">Astor</mat-option>
+                            <mat-option [value]="2">Gloster</mat-option>
+                            <mat-option [value]="4">EV</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="form-group"
+                    *ngFor="let item of addLookupGroup.get('lookupNameDetails')['controls']; let i = index;">
+                    <label class="control-label col-lg-4 no-padding add-member-label" *ngIf="i<100">Containment Assigned
+                        to: </label>
+                    <div class="col-lg-4 no-padding" *ngIf="i>0"></div>
+                    <ng-container>
+                        <div class="col-lg-6 no-padding">
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" placeholder=" Enter Name ">
+                            </div>
+                            <div class="col-lg-6">
+                                <mat-select class="form-control" placeholder="Select Department" required>
+                                    <mat-option [value]="0">Hector</mat-option>
+                                    <mat-option [value]="1">Astor</mat-option>
+                                    <mat-option [value]="2">Gloster</mat-option>
+                                    <mat-option [value]="4">EV</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <a *ngIf="addLookupGroup.get('lookupNameDetails')['controls'].length>1" align="center"
+                                (click)="fnLookupDeleteItemModal(i)">
+                                <i class="fa fa-trash red dhe"></i>
+                            </a>
+                            <a *ngIf="i<1" (click)="addNewInputField(0)">
+                                <i class="fa fa-plus dhe"></i>
+                            </a>
+                        </div>
+                    </ng-container>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 margin-top:40px " style="margin-bottom:30px;">
+        <button mat-raised-button class="" type="button" (click)="close()"
+            style="color: rgb(7, 10, 7); background-color: #e0e0e0; margin-left: 32.5cm;">
+            <mat-icon>cancel</mat-icon> Cancel
+        </button>
+        <button mat-raised-button class=" pull-right vamshi" type="button"
+            style="color: rgb(251, 253, 251); background-color:rgb(10, 93, 182);">
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+
+    </div>
+</div>
+
+<!-- ****Future Need this Code**** -->
+
+
+
+
+<!-- <div class="NewHeader">
+    <h3>Add New Request</h3>
+</div>
+<div class="row">
+    <div class="col-sm-2 pills pt-2 pr-0" style="padding-left: 0px !important;">
+        <ul class="nav col-12 flex-column pr-0">
+            <li [ngClass]=" addStep == 1 ? 'active nav-item': 'nav-item'" (click)="changeAddStep(1)">
+                <a mat-raised-button class="nav-link text-left py-2">OverView </a>
+            </li>
+            <li [ngClass]=" addStep == 2 ? 'active nav-item' : 'nav-item'" (click)="changeAddStep(2)">
+                <a mat-raised-button class="nav-link text-left py-2 mt-3">5 WHY</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-sm-10"
+        style="margin-top: 15px !important;padding-left: 25px !important;padding-right: 25px !important;">
+        <div *ngIf="addStep == 1">
+            <div mat-dialog-content style="min-height: 500x;">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="row">
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">PRTS No. : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="51155DVHS5">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">Issue Title : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" EnterIssue Title">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label"> Issue Description: </label>
+                            <div class="col-lg-8 ">
+                                <textarea type="text" class="form-control" style="height: 80px; "
+                                    placeholder="Enter Description" required></textarea>
+
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">Assigned Date: </label>
+                            <div class="col-lg-8">
+                                <input class="form-control" placeholder="MM/DD/YYYY" (keypress)="false"
+                                    [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+                                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">Source : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Enter Source">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">Raiser Name : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Enter Raiser Name">
+                            </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Raiser Department: </label>
+                            <div class="col-lg-8 ">
+                                <mat-select class="form-control" placeholder="Select Model" required>
+                                    <mat-option [value]="0">GA</mat-option>
+                                    <mat-option [value]="1">Paint</mat-option>
+
+                                </mat-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="row">
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">VIN : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Enter VIN">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group  ">
+                            <label class="col-lg-4">New Project : </label>
+                            <div class="col-lg-8">
+                                <div class="col-lg-4 newMarginClass">
+                                    <input type="checkbox" name="test"
+                                        [checked]="currentlyChecked === check_box_type.APPLY_FOR_JOB"
+                                        (click)="selectCheckBox(check_box_type.APPLY_FOR_JOB)"> &nbsp;&nbsp; YES
+                                </div>
+
+                                <div class="col-lg-4 newMarginClass">
+                                    <input class="col-lg-4 newMarginClass" type="checkbox" name="test"
+                                        [checked]="currentlyChecked === check_box_type.MODIFY_A_JOB"
+                                        (click)="selectCheckBox(check_box_type.MODIFY_A_JOB)">&nbsp;&nbsp; NO
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label"> Project Code/Name: </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Enter  Project Code/Name">
+                            </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Model: </label>
+                            <div class="col-lg-8 ">
+                                <mat-select class="form-control" placeholder="Select Model" required>
+                                    <mat-option [value]="0">Hector</mat-option>
+                                    <mat-option [value]="1">Astor</mat-option>
+                                    <mat-option [value]="2">Gloster</mat-option>
+                                    <mat-option [value]="4">EV</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Variant: </label>
+                            <div class="col-lg-8">
+                                <mat-select class="form-control" placeholder="Select Variant" required>
+                                    <mat-option [value]="0">VDI</mat-option>
+                                    <mat-option [value]="1">SXI</mat-option>
+                                    <mat-option [value]="2">LDI</mat-option>
+                                </mat-select>
+
+                            </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Issue Severity: </label>
+                            <div class="col-lg-8 ">
+                                <mat-select class="form-control" placeholder="Select Severity" required>
+                                    <mat-option [value]="0">Hight</mat-option>
+                                    <mat-option [value]="1">Medium</mat-option>
+                                    <mat-option [value]="2">Low</mat-option>
+
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Category: </label>
+                            <div class="col-lg-8">
+                                <mat-select class="form-control" placeholder="Select Category" required>
+                                    <mat-option [value]="0">Category-1</mat-option>
+                                    <mat-option [value]="1">Category-2</mat-option>
+                                    <mat-option [value]="2">Category-3</mat-option>
+                                </mat-select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label class="col-lg-4">Repeat Issue : </label>
+                            <div class="col-lg-8">
+                                <mat-checkbox class="col-lg-4 newMarginClass" (change)="repeted($event)">Repeat Issue
+                                </mat-checkbox>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group " *ngIf=" isRepeted">
+                            <label class="col-lg-4 control-label"> Enter PRTS Reference : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Enter   PRTS Reference ">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+               
+            </div>
+
+
+        </div>
+       
+        <div *ngIf="addStep == 2">
+            <div mat-dialog-content style="min-height:400px;">
+                <div class="col-lg-5 col-sm-5">
+                    <div class="row">
+
+
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">1. What : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter What">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">2. Where : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter Where">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">3. When : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter When">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">4. Who : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter Who">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">5. Why : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter Why">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">6. How Much : </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder=" Enter How Much ">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-lg-4 control-label">Assigned to : </label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" placeholder=" Enter Name ">
+                            </div>
+                            <div class="col-lg-4">
+                                <mat-select class="form-control" placeholder="Select Department" required>
+                                    <mat-option [value]="0">Hector</mat-option>
+                                    <mat-option [value]="1">Astor</mat-option>
+                                    <mat-option [value]="2">Gloster</mat-option>
+                                    <mat-option [value]="4">EV</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-sm-7 ">
+                    <div class="row">
+                        <div class="form-group"
+                            *ngFor="let item of addLookupGroup.get('lookupNameDetails')['controls']; let i = index;">
+                            <label class="control-label col-lg-4 no-padding add-member-label" *ngIf="i<100">Containment Assigned to:
+                            </label>
+                            <div class="col-lg-4 no-padding" *ngIf="i>0"></div>
+                            <ng-container>
+                                <div class="col-lg-6 no-padding">
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" placeholder=" Enter Name ">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-select class="form-control" placeholder="Select Department" required>
+                                            <mat-option [value]="0">Hector</mat-option>
+                                            <mat-option [value]="1">Astor</mat-option>
+                                            <mat-option [value]="2">Gloster</mat-option>
+                                            <mat-option [value]="4">EV</mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <a *ngIf="addLookupGroup.get('lookupNameDetails')['controls'].length>1"
+                                        align="center" (click)="fnLookupDeleteItemModal(i)">
+                                        <i class="fa fa-trash red dhe"></i>
+                                    </a>
+                                    <a *ngIf="i<1" (click)="addNewInputField()">
+                                        <i class="fa fa-plus dhe"></i>
+                                    </a>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <mat-dialog-actions align="end">
+            <button mat-raised-button>Update</button>
+            <button mat-raised-button (click)="changeAddStep(3)">Proceed</button>
+            <button mat-raised-button class="add-dark-hover btn-default" (click)="changeAddStep(1)">Back</button>
+            <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+        </mat-dialog-actions>
+    </div>
+</div> -->

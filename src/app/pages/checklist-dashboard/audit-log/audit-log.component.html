@@ -1,0 +1,236 @@
+<!-- Add, Filter Buttons -->
+<div class="row">
+  <div class="col-sm-12">
+    <!-- <div class="col-sm-7" style="margin-left: -10px;">
+      <button [ngStyle]="{'background-color':isChecked1 == 'yes' ? '#D3D3D3' : '#099FF0' }" (click)="color1()"
+        mat-raised-button class="navtabWidth1 btn-primary mt-3"> Static (10)
+      </button>
+      <button [ngStyle]="{'background-color':isChecked2 == 'yes' ? '#D3D3D3' : '#099FF0' }" (click)="color2()"
+        mat-raised-button class="navtabWidth1 btn-primary mt-3" style="margin-left:10px ;"> Dynamic (15)
+      </button>
+      <button [ngStyle]="{'background-color':isChecked3 == 'yes' ? '#D3D3D3' : '#099FF0' }" (click)="color3()"
+        mat-raised-button class="navtabWidth1 btn-primary mt-3" style="margin-left:10px ;">
+        Electrical
+        (5)
+      </button>
+      <button [ngStyle]="{'background-color':isChecked4 == 'yes' ? '#D3D3D3' : '#099FF0' }" (click)="color4()"
+        mat-raised-button class="navtabWidth1 btn-primary mt-3" style="margin-left:10px ;">
+        Chasis & U
+        B(20)
+      </button>
+      <button [ngStyle]="{'background-color':isChecked5 == 'yes' ? '#D3D3D3' : '#099FF0' }" (click)="color5()"
+        mat-raised-button class="navtabWidth1 btn-primary mt-3" style="margin-left:10px ;"> Rain
+        Test
+        (16)
+      </button>
+    </div> -->
+
+    <!-- <div class="col-sm-5">
+      <button mat-raised-button class="pull-right  btn-primary  mt-4" (click)="addchecklistissuelineitem(null)">
+        <mat-icon>add</mat-icon> Add Line Item
+      </button>
+      <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10 mt-4"
+        (click)="filterToggle = !filterToggle">
+        <mat-icon>filter_list</mat-icon> Filter
+      </button>
+      <div class="switchToggle pull-right" style="margin-right:10px!important; margin-top: 5px!important;">
+        <input type="checkbox" (click)="gridToggle = !gridToggle" id="switch" />
+        <label class="mt-4" style="background-color:#3e98d3 " for="switch">Toggle</label>
+      </div>
+      <button type="button" class="btn btn-outline-success" style="margin-right: 10px; height: 41px;">Save
+        Draft</button>
+      <button mat-raised-button class="mt-4" color="primary" [mat-dialog-close]="'test'">
+        <mat-icon>save</mat-icon>Submit
+      </button>
+    </div> -->
+  </div>
+</div>
+<!-- Filter -->
+<!-- <div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins" style="margin-left: -6px;
+    margin-right: -4px">
+    <mat-card class="filter">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="col-sm-4">
+              <label class="pull-right" style="margin-top: 6px;">Defect:</label>
+            </div>
+            <div class="col-sm-8">
+              <mat-select class="form-control" placeholder="Select Defect" required>
+                <mat-option [value]="0"> Thin Paint</mat-option>
+                <mat-option [value]="1"> Tool / Scuff Marks</mat-option>
+                <mat-option [value]="2"> Scratch</mat-option>
+                <mat-option [value]="3"> Sink / flow marks</mat-option>
+                <mat-option [value]="4">Contamination</mat-option>
+                <mat-option [value]="5"> Uneven/Excess Gap/ Flushness</mat-option>
+                <mat-option [value]="6"> Improper assembly</mat-option>
+                <mat-option [value]="7"> Dent/ Ding / Bump</mat-option>
+                <mat-option [value]="8"> Color / Shade Mismatch</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="col-sm-4">
+              <label class="pull-right" style="margin-top: 6px;">Side View:</label>
+            </div>
+            <div class="col-sm-8">
+              <mat-select class="form-control" placeholder="Select Side View" required>
+                <mat-option [value]="0">LH</mat-option>
+                <mat-option [value]="1">RH</mat-option>
+                <mat-option [value]="2">BH</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="col-sm-4">
+              <label class="pull-right" style="margin-top: 6px;">Face View:</label>
+            </div>
+            <div class="col-sm-8">
+              <mat-select class="form-control" placeholder="Select Face View" required>
+                <mat-option [value]="0">FT</mat-option>
+                <mat-option [value]="1">RR</mat-option>
+                <mat-option [value]="2">BH</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="col-sm-4" style="margin-top: 26px;">
+            <div class="col-sm-4">
+              <label class="pull-right" style="margin-top: 6px;">Agency:</label>
+            </div>
+            <div class="col-sm-8">
+              <mat-select class="form-control" placeholder="Select Agency" required>
+                <mat-option [value]="0">General Agency</mat-option>
+                <mat-option [value]="1">Paint</mat-option>
+                <mat-option [value]="2">Body</mat-option>
+                <mat-option [value]="3">SQE</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="col-sm-4" style="margin-top: 26px;">
+            <div class="col-sm-4">
+              <label class="pull-right" style="margin-top: 6px;">Demerit:</label>
+            </div>
+            <div class="col-sm-8">
+              <mat-select class="form-control" placeholder="Select Demerit" required>
+                <mat-option [value]="0">1</mat-option>
+                <mat-option [value]="1">10</mat-option>
+                <mat-option [value]="2">20</mat-option>
+                <mat-option [value]="3">50</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="col-sm-4" style="margin-top: 26px;">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-8">
+              <button mat-raised-button class="pull-right btn-primary" style="margin-left: 5px;">
+                <mat-icon>youtube_searched_for</mat-icon> Go
+              </button>
+              <button mat-raised-button style="background-color:#37474f; color:#fff !important;" class="pull-right">
+                <mat-icon>settings_backup_restore</mat-icon> Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> -->
+
+<!-- Button -->
+<div class="col-sm-2" style="margin-left:-48px;">
+  <div class="col-sm-12">
+    <div class="row-wrap mb-10">
+      <div class="w-100" style="margin-bottom:10px">
+        <div class="col-xs-3" style="margin-bottom:100px;">
+          <div class="pills">
+            <ul class="nav nav-pills">
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked6 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color6()"
+                  mat-raised-button class="navtabWidth color-line red-line">
+                  BSO(4)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked7 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color7()"
+                  mat-raised-button class="navtabWidth color-line green-line" style="margin-top: 10px;">
+                  Door(1)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked8 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color8()"
+                  mat-raised-button class="navtabWidth color-line yellow-line" style="margin-top: 10px;">
+                  Rear bumper(3)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked9 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color9()"
+                  mat-raised-button class="navtabWidth color-line red-line" style="margin-top: 10px;">
+                  Tailgate(5)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked10 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color10()"
+                  mat-raised-button class="navtabWidth color-line green-line" style="margin-top: 10px;">
+                  Central Console(4)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked11 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color11()"
+                  mat-raised-button class="navtabWidth color-line yellow-line" style="margin-top: 10px;">
+                  C pillar(1)
+                </a>
+              </li>
+              <li routerLinkActive="active" routerLink="./prtsdashboard">
+                <a [ngStyle]="{'background-color': isChecked12 === 'yes' ? '#D3D3D3' : '#099FF0'}" (click)="color12()"
+                  mat-raised-button class="navtabWidth color-line red-line" style="margin-top: 10px;">
+                  Rear Seat(3)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-10">
+  <div class="col-sm-6">
+    <textarea class="form-control" rows="9" placeholder="Enter your text here..."></textarea>
+    <div class="mt-3">
+      <button class="btn btn-outline-success me-2" style="height: 60px; width: 70px;">5</button>
+      <button class="btn btn-outline-warning me-2" style="height: 60px; width: 70px;">3</button>
+      <button class="btn btn-outline-danger" style="height: 60px; width: 70px;">1</button>
+    </div>
+    <div class="mt-3">
+      <button mat-raised-button style="background-color: black; color: white;">
+        CAPA (7)
+      </button>
+    </div>
+    <div class="mt-3">
+      <b>
+        Due Date : 12-10-2024
+      </b>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div>
+      <label for="">Auditor Remarks</label>
+      <textarea class="form-control" rows="7" placeholder="Enter Auditor Remarks..."></textarea>
+    </div>
+    <div class="mt-3">
+      <label for="">Auditee Response</label>
+      <textarea class="form-control" rows="7" placeholder="Enter Auditee Response..."></textarea>
+    </div>
+    <div class="mt-3">
+      <mat-checkbox></mat-checkbox>
+      <b style="margin-left: 10px;">Resolved</b>
+      <button mat-raised-button class="pull-right" style="background-color: green; color: white; width: 90px;">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,186 @@
+<div class="row mb-5">
+    <div class="col-sm-12 row wrap mt-4" style="margin-left: 20px;">
+        <div class="pills">
+            <ul class="nav nav-pills">
+                <li routerLink="sealing">
+                    <a [ngStyle]="{'background-color': isChecked1 === 'yes' ? 'white' : '#50636d' , 'color': isChecked1 === 'yes' ? 'black': 'white'}"
+                        (click)="color1()" mat-raised-button class="navtabWidth1">
+                        ALL
+                    </a>
+                </li>
+                <li routerLink="matching">
+                    <a [ngStyle]="{'background-color': isChecked2 === 'yes' ? 'white' : '#50636d', 'color': isChecked2 === 'yes' ? 'black': 'white'}"
+                        (click)="color2()" mat-raised-button class="navtabWidth1">
+                        Casting
+                    </a>
+                </li>
+                <li routerLink="sealing">
+                    <a [ngStyle]="{'background-color': isChecked3 === 'yes' ? 'white' : '#50636d', 'color': isChecked3 === 'yes' ? 'black': 'white'}"
+                        (click)="color3()" mat-raised-button class="navtabWidth1">
+                        Forging
+                    </a>
+                </li>
+                <li routerLink="matching">
+                    <a [ngStyle]="{'background-color': isChecked4 === 'yes' ? 'white' : '#50636d', 'color': isChecked4 === 'yes' ? 'black': 'white'}"
+                        (click)="color4()" mat-raised-button class="navtabWidth1">
+                        Machining
+                    </a>
+                </li>
+                <li routerLink="sealing">
+                    <a [ngStyle]="{'background-color': isChecked5 === 'yes' ? 'white' : '#50636d', 'color': isChecked5 === 'yes' ? 'black': 'white'}"
+                        (click)="color5()" mat-raised-button class="navtabWidth1">
+                        Fasteners
+                    </a>
+                </li>
+                <!-- New buttons -->
+                <li routerLink="sealing">
+                    <a [ngStyle]="{'background-color': isChecked6 === 'yes' ? 'white' : '#50636d', 'color': isChecked6 === 'yes' ? 'black': 'white'}"
+                        (click)="color6()" mat-raised-button class="navtabWidth1">
+                        Non-Metallic
+                    </a>
+                </li>
+                <li routerLink="matching">
+                    <a [ngStyle]="{'background-color': isChecked7 === 'yes' ? 'white' : '#50636d', 'color': isChecked7 === 'yes' ? 'black': 'white'}"
+                        (click)="color7()" mat-raised-button class="navtabWidth1">
+                        Sheet Metal
+                    </a>
+                </li>
+                <li routerLink="sealing">
+                    <a [ngStyle]="{'background-color': isChecked8 === 'yes' ? 'white' : '#50636d', 'color': isChecked8 === 'yes' ? 'black': 'white'}"
+                        (click)="color8()" mat-raised-button class="navtabWidth1">
+                        Proprietary
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row wrap col-sm-12 mt-4">
+        <div class="container">
+            <mat-card class="mt-3" style="background-color: rgb(200, 226, 236); width: 99%; margin-left: 25px;">
+                <div class="row wrap">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Part Family : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Part Family">
+                                <mat-option value="John Doe">Engine Components</mat-option>
+                                <mat-option value="John Doe">Transmission Systems</mat-option>
+                                <mat-option value="John Doe">Chassis and Frame</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-3 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Severity : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Severity">
+                                <mat-option value="John Doe">Important</mat-option>
+                                <mat-option value="John Doe">Critical</mat-option>
+                                <mat-option value="Jane Smith">Others</mat-option>
+                            </mat-select>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-4 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Select Year : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Year">
+                                <mat-option value="John Doe">FY 2021 - 2022</mat-option>
+                                <mat-option value="John Doe">FY 2022 - 2023</mat-option>
+                                <mat-option value="Jane Smith">FY 2023 - 2024</mat-option>
+                                <mat-option value="Michael Johnson">FY 2024 - 2025</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button mat-raised-button color="primary" style="height: 35px; margin-top: 3px;"
+                            class="pull-right margin-right-10">
+                            <mat-icon>search</mat-icon> Go
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="col-sm-12" style="margin-left: 10px;">
+        <h2 class="mb-4 mt-3" style="margin-left: 20px;">Distribution of Actions by Commodity</h2>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div id="grid-table-container" class="table-responsive mt-4">
+                    <table matSort id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr>
+                                <th>Commodity Name</th>
+                                <th class="text-center">Critical (%)</th>
+                                <th class="text-center">Important (%)</th>
+                                <th class="text-center">Others (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items">
+                                <td>{{item.commodity}}</td>
+                                <td class="text-center">{{item.critical }}%</td>
+                                <td class="text-center">{{item.important }}%</td>
+                                <td class="text-center">{{item.others }}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td class="text-center"><strong>75%</strong></td>
+                                <td class="text-center"><strong>55%</strong></td>
+                                <td class="text-center"><strong>65%</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px;  margin-bottom: 15px;">
+                        <div #chartContainer id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12 mt-5" style="margin-left: 10px;">
+        <h2 class="mb-4 mt-3" style="margin-left: 10px;">Distribution of Actions by Status</h2>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div id="grid-table-container" class="table-responsive mt-4">
+                    <table matSort id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr>
+                                <th>Status</th>
+                                <th class="text-center">Pecentange (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items1">
+                                <td>{{item.rating}}</td>
+                                <td class="text-center">{{item.per }}%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px;  margin-bottom: 15px;">
+                        <div #chartContainer1 id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

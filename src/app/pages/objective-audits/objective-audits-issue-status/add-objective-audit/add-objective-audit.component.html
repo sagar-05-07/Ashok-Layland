@@ -1,0 +1,104 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+        {{data ? 'Update' : 'Add'}} Parts Audit
+    </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Parts Family : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select Parts Family" required>
+                        <mat-option [value]="0">Engine Components</mat-option>
+                        <mat-option [value]="1">Transmission Systems</mat-option>
+                        <mat-option [value]="2">Chassis and Frame</mat-option>
+                        <mat-option [value]="4">Suspension Parts</mat-option>
+                        <mat-option [value]="5">Electrical Systems</mat-option>
+                        <mat-option [value]="0">Body and Cabin</mat-option>
+                        <mat-option [value]="1">Braking Systems</mat-option>
+                        <mat-option [value]="2">Body and Cabin</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Commodity : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select Parts Family" required>
+                        <mat-option [value]="0">Casting</mat-option>
+                        <mat-option [value]="1">Forging</mat-option>
+                        <mat-option [value]="2">Machining</mat-option>
+                        <mat-option [value]="4">Fasteners</mat-option>
+                    </mat-select>
+                    <!-- <input type="text" class="form-control" placeholder="Enter Commodity"> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Supplier : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select Parts Family" required>
+                        <mat-option [value]="0">ABC Suppliers Ltd</mat-option>
+                        <mat-option [value]="1">Global Parts Co.</mat-option>
+                        <mat-option [value]="2">Tech Innovators</mat-option>
+                        <mat-option [value]="4">Auto Components Inc.</mat-option>
+                    </mat-select>
+                    <!-- <input type="text" class="form-control" placeholder="Enter Supplier Name"> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">State: </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select City" required>
+                        <mat-option [value]="0">Maharashtra</mat-option>
+                        <mat-option [value]="1">Tamil Nadu</mat-option>
+                        <mat-option [value]="2">Karnataka</mat-option>
+                        <mat-option [value]="4">Telangana</mat-option>
+                        <mat-option [value]="5">Chhattisgarh</mat-option>
+                        <mat-option [value]="0">Delhi</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">City: </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select City" required>
+                        <mat-option [value]="0">Mumbai</mat-option>
+                        <mat-option [value]="1">Banglore</mat-option>
+                        <mat-option [value]="2">Chennai</mat-option>
+                        <mat-option [value]="4">Hyderabad</mat-option>
+                        <mat-option [value]="5">Raipur</mat-option>
+                        <mat-option [value]="0">Bhilai</mat-option>
+                        <mat-option [value]="1">Pune</mat-option>
+                        <mat-option [value]="2">Delhi</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Auditor : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select Auditor Name">
+                        <mat-option value="John Doe">John Doe</mat-option>
+                        <mat-option value="Jane Smith">Jane Smith</mat-option>
+                        <mat-option value="Michael Johnson">Michael Johnson</mat-option>
+                        <mat-option value="Emily Brown">Emily Brown</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Audit Date : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="date" class="form-control" placeholder="Enter Supplier Name">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" [mat-dialog-close]="'test'">
+        <mat-icon>save</mat-icon><span>{{data ? 'Update' : 'Submit'}}</span>
+    </button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">
+        <mat-icon>cancel</mat-icon>Close
+    </button>
+</mat-dialog-actions>

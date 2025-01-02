@@ -1,0 +1,42 @@
+<div class="row-wrap">
+    <div class="w-100">
+        <!-- Master Data Tabs -->
+        <div class="col-xs-12">
+            <div class="pills">
+                <ul class="nav nav-pills" style="margin-left: 10px;">
+                    <li routerLinkActive="active" [routerLink]="['./commodity']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Commodity
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" [routerLink]="['./performance']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Performance
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" [routerLink]="['./actions']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Actions
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" [routerLink]="['./scatter']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Scatter
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" [routerLink]="['./bell-curve']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Bell Curve
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" [routerLink]="['./pareto']">
+                        <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+                            Pareto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,75 @@
+.width {
+    width: 150px;
+}
+
+.NewHeader {
+    text-align: center;
+    color: white;
+    background: #229494;
+
+    padding-top: 11px;
+    padding-bottom: 1px;
+    margin-bottom: 20px;
+}
+
+.selected-step {
+    background-color: gray;
+    /* Change this to the color you want */
+    color: white;
+    /* Change this to the text color for better visibility */
+}
+
+// .form-control.txtarea{
+// height: 400px;
+// }
+
+/* your-component.component.css */
+/* your-component.component.css */
+
+.button-container {
+    display: inline-flex;
+    /* Ensure elements are inline */
+    align-items: center;
+    /* Center align items vertically */
+}
+
+.custom-button {
+    background-color: #229494;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border-color: #229494;
+    /* Border color (optional) */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color */
+
+    /* Optional: Padding and margin adjustments */
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.custom-button:hover {
+    background-color: #1a7f7f;
+    /* Button background color on hover */
+    border-color: #1a7f7f;
+    /* Border color on hover */
+}
+
+.custom-icon {
+    color: #007BFF;
+    /* Icon color */
+    font-size: 24px;
+    /* Icon size */
+    margin-right: 5px;
+    /* Adjust margin as needed */
+}
+
+.custom-icon1 {
+    color: red;
+    /* Icon color */
+    font-size: 24px;
+    /* Icon size */
+    margin-left: 5px;
+    margin-right: 5px;
+    /* Adjust margin as needed */
+}

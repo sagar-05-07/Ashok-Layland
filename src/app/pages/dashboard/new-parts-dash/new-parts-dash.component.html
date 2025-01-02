@@ -1,0 +1,334 @@
+<div class="row mb-5">
+    <div class="row wrap col-sm-12 mt-4">
+        <div class="container">
+            <mat-card class="mt-3" style="background-color: rgb(200, 226, 236); width: 99%; margin-left: 15px;">
+                <div class="row wrap">
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-3 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Commodity : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Commodity">
+                                <mat-option value="John Doe">Casting</mat-option>
+                                <mat-option value="John Doe">Forging</mat-option>
+                                <mat-option value="John Doe">Machining</mat-option>
+                                <mat-option value="John Doe">Fasteners</mat-option>
+                                <mat-option value="John Doe">Non-Metallic</mat-option>
+                                <mat-option value="John Doe">Sheet Metal</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-3 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Action Type : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Action Type">
+                                <mat-option value="John Doe">Important</mat-option>
+                                <mat-option value="John Doe">Critical</mat-option>
+                                <mat-option value="Jane Smith">Others</mat-option>
+                            </mat-select>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-3 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Select Year : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Year">
+                                <mat-option value="John Doe">FY 2021 - 2022</mat-option>
+                                <mat-option value="John Doe">FY 2022 - 2023</mat-option>
+                                <mat-option value="Jane Smith">FY 2023 - 2024</mat-option>
+                                <mat-option value="Michael Johnson">FY 2024 - 2025</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button mat-raised-button color="primary" style="height: 35px; margin-top: 3px;"
+                            class="pull-right margin-right-10">
+                            <mat-icon>search</mat-icon> Go
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="col-sm-12 mt-5">
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <h2 style="text-align: center;">Overall Parts Revalidation</h2>
+                    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [xAxis]="true"
+                        [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true"
+                        xAxisLabel="Months" yAxisLabel="Parts" [autoScale]="true" [timeline]="true"
+                        [showGridLines]="true" [roundDomains]="true" [tooltipDisabled]="false" [animations]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <h2 style="text-align: center;">Priority Parts - Revalidation</h2>
+                    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [xAxis]="true"
+                        [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true"
+                        xAxisLabel="Months" yAxisLabel="Parts" [autoScale]="true" [timeline]="true"
+                        [showGridLines]="true" [roundDomains]="true" [tooltipDisabled]="false" [animations]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="col-sm-12 mt-5">
+        <div class="col-sm-6">
+            <mat-card>
+                <div class="col-sm-7">
+                    <label class="control-label col-sm-4 mt-2">Part Family : </label>
+                    <div class="col-sm-8 mt-1">
+                        <mat-select class="form-control" placeholder="Select Part Family">
+                            <mat-option value="John Doe">Engine Components</mat-option>
+                            <mat-option value="John Doe">Transmission Systems</mat-option>
+                            <mat-option value="John Doe">Chassis and Frame</mat-option>
+                            <mat-option value="John Doe">Suspension Parts</mat-option>
+                            <mat-option value="John Doe">Electrical Systems</mat-option>
+                            <mat-option value="John Doe">Braking Systems</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <button type="button" class="btn btn-outline-primary mt-1">Select and view parts audit
+                        summary</button>
+                </div>
+            </mat-card>
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row mt-3">
+                    <h2 style="text-align: center;">Parts Family Process Audit </h2>
+                    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [xAxis]="true"
+                        [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true"
+                        xAxisLabel="Months" yAxisLabel="Parts" [autoScale]="true" [timeline]="true"
+                        [showGridLines]="true" [roundDomains]="true" [tooltipDisabled]="false" [animations]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 470px; width: auto;">
+                <div class="row">
+                    <div>
+                        <h2 class="text-center">4M Action Summary</h2>
+                        <canvasjs-chart [options]="chartOptions1"
+                            [styles]="{width: '90%', height:'320px'}"></canvasjs-chart>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </div>
+
+    <div class="col-sm-12 mt-5">
+        <h2 style="margin-left: 10px;">Action Distribution by Status</h2>
+        <div class="col-sm-6 mt-3">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div>
+                        <canvasjs-chart [options]="chartOptions"
+                            [styles]="{width: '90%', height:'320px'}"></canvasjs-chart>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6 mt-3">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px; margin-top: 15px; margin-bottom: 15px;">
+                        <div style="height: 400px;width: 600px;" #chartContainer id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="col-sm-12 mt-5">
+        <h2>Parts Revalidation Audits by Vartical</h2>
+        <div id="grid-table-container" class="table-responsive mt-2">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th class="text-center" colspan="3">Activity</th>
+                        <th class="text-center" colspan="3">Parts Criticality</th>
+                        <th class="text-center" rowspan="2">Part Found NG</th>
+                        <th class="text-center" rowspan="2">Parts Corrected OK</th>
+                        <th class="text-center" rowspan="2">Total Parameter</th>
+                        <th class="text-center" colspan="2">Safety</th>
+                        <th class="text-center" colspan="2">Critical</th>
+                        <th class="text-center" colspan="2">Important</th>
+                        <th class="text-center" colspan="2">Fitment Parameter</th>
+                        <th class="text-center" colspan="2">Other Dimensions</th>
+                        <th class="text-center" colspan="2">Awaiting Reports (Due to Facility)</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">S.No</th>
+                        <th class="text-center">Vertical</th>
+                        <th class="text-center">Parts Checked</th>
+                        <th class="text-center">R</th>
+                        <th class="text-center">Y</th>
+                        <th class="text-center">G</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">TBR</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+                <tbody>
+                    <tr *ngFor="let item of values; let i = index">
+                        <td class="text-center">{{ i + 1 }}</td>
+                        <td class="text-center">{{ item.vertical }}</td>
+                        <td class="text-center">{{ item.partsChecked }}</td>
+                        <td class="text-center">{{ item.r }}</td>
+                        <td class="text-center">{{ item.y }}</td>
+                        <td class="text-center">{{ item.g }}</td>
+                        <td class="text-center">{{ item.partFoundNg }}</td>
+                        <td class="text-center">{{ item.partsCorrectedOk }}</td>
+                        <td class="text-center">{{ item.totalParameter }}</td>
+                        <td class="text-center">{{ item.safetyOk }}</td>
+                        <td class="text-center">{{ item.safetyNotOk }}</td>
+                        <td class="text-center">{{ item.criticalOk }}</td>
+                        <td class="text-center">{{ item.criticalNotOk }}</td>
+                        <td class="text-center">{{ item.importantOk }}</td>
+                        <td class="text-center">{{ item.importantNotOk }}</td>
+                        <td class="text-center">{{ item.fitmentOk }}</td>
+                        <td class="text-center">{{ item.fitmentNotOk }}</td>
+                        <td class="text-center">{{ item.otherOk }}</td>
+                        <td class="text-center">{{ item.otherNotOk }}</td>
+                        <td class="text-center">{{ item.awaitingOk }}</td>
+                        <td class="text-center">{{ item.tbr }}</td>
+                    </tr>
+                    <!-- Total Row -->
+                    <tr>
+                        <td class="text-center" colspan="2"><strong>Total</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('partsChecked') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('r') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('y') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('g') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('partFoundNg') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('partsCorrectedOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('totalParameter') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('safetyOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('safetyNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('criticalOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('criticalNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('importantOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('importantNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('fitmentOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('fitmentNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('otherOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('otherNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('awaitingOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal('tbr') }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-sm-12 mt-5">
+        <h2>Team Distribution for Parts Revalidation Audits</h2>
+        <div id="grid-table-container" class="table-responsive mt-2">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th class="text-center" colspan="3">Activity</th>
+                        <th class="text-center" colspan="3">Parts Criticality</th>
+                        <th class="text-center" rowspan="2">Part Found NG</th>
+                        <th class="text-center" rowspan="2">Parts Corrected OK</th>
+                        <th class="text-center" rowspan="2">Total Parameter</th>
+                        <th class="text-center" colspan="2">Safety</th>
+                        <th class="text-center" colspan="2">Critical</th>
+                        <th class="text-center" colspan="2">Important</th>
+                        <th class="text-center" colspan="2">Fitment Parameter</th>
+                        <th class="text-center" colspan="2">Other Dimensions</th>
+                        <th class="text-center" colspan="2">Awaiting Reports (Due to Facility)</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">S.No</th>
+                        <th class="text-center">SQ Engineer</th>
+                        <th class="text-center">Parts Checked</th>
+                        <th class="text-center">R</th>
+                        <th class="text-center">Y</th>
+                        <th class="text-center">G</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">Not OK</th>
+                        <th class="text-center">OK</th>
+                        <th class="text-center">TBR</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+                <tbody>
+                    <tr *ngFor="let item of values1; let i = index">
+                        <td class="text-center">{{ i + 1 }}</td>
+                        <td class="text-center">{{ item.vertical }}</td>
+                        <td class="text-center">{{ item.partsChecked }}</td>
+                        <td class="text-center">{{ item.r }}</td>
+                        <td class="text-center">{{ item.y }}</td>
+                        <td class="text-center">{{ item.g }}</td>
+                        <td class="text-center">{{ item.partFoundNg }}</td>
+                        <td class="text-center">{{ item.partsCorrectedOk }}</td>
+                        <td class="text-center">{{ item.totalParameter }}</td>
+                        <td class="text-center">{{ item.safetyOk }}</td>
+                        <td class="text-center">{{ item.safetyNotOk }}</td>
+                        <td class="text-center">{{ item.criticalOk }}</td>
+                        <td class="text-center">{{ item.criticalNotOk }}</td>
+                        <td class="text-center">{{ item.importantOk }}</td>
+                        <td class="text-center">{{ item.importantNotOk }}</td>
+                        <td class="text-center">{{ item.fitmentOk }}</td>
+                        <td class="text-center">{{ item.fitmentNotOk }}</td>
+                        <td class="text-center">{{ item.otherOk }}</td>
+                        <td class="text-center">{{ item.otherNotOk }}</td>
+                        <td class="text-center">{{ item.awaitingOk }}</td>
+                        <td class="text-center">{{ item.tbr }}</td>
+                    </tr>
+                    <!-- Total Row -->
+                    <tr>
+                        <td class="text-center" colspan="2"><strong>Total</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('partsChecked') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('r') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('y') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('g') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('partFoundNg') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('partsCorrectedOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('totalParameter') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('safetyOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('safetyNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('criticalOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('criticalNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('importantOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('importantNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('fitmentOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('fitmentNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('otherOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('otherNotOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('awaitingOk') }}</strong></td>
+                        <td class="text-center"><strong>{{ getTotal1('tbr') }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

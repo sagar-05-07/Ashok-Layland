@@ -1,0 +1,11 @@
+<div class="col-sm-12 pull-right">
+  <button mat-raised-button class="pull-right btn-primary" (click)="addnotes()">
+    <mat-icon>message</mat-icon> Add Notes
+  </button>
+</div>
+
+<div class="col-6" *ngFor="let entry of entries">
+  <p>{{entry.Auditor}} ,&nbsp;&nbsp;&nbsp;&nbsp;{{entry.date}}&nbsp;&nbsp;&nbsp;&nbsp;<b>{{entry.prblm}}</b></p>
+  <p> Description : {{entry.content}}</p>
+  <hr>
+</div>

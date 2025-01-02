@@ -1,0 +1,93 @@
+.progress-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.progress-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.progress-details {
+    margin-top: 20px;
+}
+
+.progress-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.progress-providername {
+    font-size: 1.2em;
+    color: #888;
+}
+
+.progress-status {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.progress-eta {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.half-radial-card {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.half-radial-details {
+    margin-left: 20px;
+}
+
+.half-radial-details .record {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.record-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.circle-progress-container {
+    position: relative;
+    width: 324px;
+    /* Adjust as needed */
+    height: 185px;
+    /* Adjust as needed */
+}
+
+.circle-progress-container .percent-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    /* Adjust font size */
+    color: #3e98c7;
+    /* Match outerStrokeColor */
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}

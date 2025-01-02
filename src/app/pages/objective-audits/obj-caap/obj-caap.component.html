@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div fxLayout="row wrap" #resizedDiv>
+        <div class="flex-p w-100 sizeAlign">
+            <div class="row" style="margin-bottom:15px;">
+                <div class="col-xs-6 ">
+                </div>
+                <div class="col-xs-6 ">
+                    <div class="flex-p">
+                        <!-- <button mat-raised-button color="primary" class="pull-right" (click)="addParameter(null)">
+                            <mat-icon>grid_on</mat-icon> Grid View
+                        </button> -->
+                        <button mat-raised-button (click)="openGridview();"
+                            style="background-color: black; color:white;" class="pull-right margin-right-10">
+                            <mat-icon>grid_on</mat-icon> Grid Column
+                        </button>
+                        <button mat-raised-button style="background-color: black; color:white;"
+                            class="pull-right filters-hover margin-right-10">
+                            <mat-icon>filter_list</mat-icon> Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="overflow-x: auto">
+                    <div id="grid-table-container" class="table-responsive">
+                        <table matSort id="example2" class="table table-bordered table-hover">
+                            <thead class="tbl-head">
+                                <tr>
+                                    <th class="text-center">Manage</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Resolved</th>
+                                    <th class="text-center">Docs</th>
+                                    <th class="text-center">Photos</th>
+                                    <th>Action Subject</th>
+                                    <th>Supplier Name</th>
+                                    <th>Action Type</th>
+                                    <th>AUDIT Reference</th>
+                                    <th>Process Area</th>
+                                    <th>Process Category</th>
+                                    <th>Description</th>
+                                    <th class="text-center">Supplier Remarks</th>
+                                    <th>Log Date</th>
+                                    <th>Due Date</th>
+                                    <th class="text-center">Completion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of values">
+
+                                    <td class="text-center editDel">
+                                        <a style="cursor: pointer;" matTooltip="Edit" (click)="addParameter(item)">
+                                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                                        </a>
+                                        <a style="cursor: pointer;" matTooltip="Delete" (click)="deleteParameter(item)">
+                                            <i class="fa fa-trash red"></i>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <mat-select class="form-control" [value]="0" placeholder="Select Status"
+                                            required>
+                                            <mat-option [value]="0">WIP</mat-option>
+                                            <mat-option [value]="1">Done</mat-option>
+                                            <mat-option [value]="0">Hold</mat-option>
+                                            <mat-option [value]="0">Pending</mat-option>
+                                        </mat-select>
+                                    </td>
+                                    <td class="text-center" style="cursor: pointer;">
+                                        <mat-checkbox [checked]="item.check" disabled></mat-checkbox>
+                                    </td>
+                                    <td class="text-center" (click)="openDocs()" style="color: blue; cursor: pointer;">2
+                                    </td>
+                                    <td class="text-center" (click)="openDocs()" style="color: blue; cursor: pointer;">2
+                                    </td>
+
+                                    <td>{{item.subject}}</td>
+                                    <td>{{item.supplier}}</td>
+                                    <td>Important</td>
+                                    <td>{{item.auditref}}</td>
+                                    <td>{{item.processarea}}</td>
+                                    <td>{{item.processcat}}</td>
+                                    <td [matTooltip]="item.description" matTooltipPosition="above">
+                                        {{ item.description | slice: 0:100 }}<span
+                                            *ngIf="item.description.length > 100">...</span>
+                                    </td>
+                                    <td class="text-center" (click)="addNotes();">
+                                        <mat-icon style="cursor: pointer; color: blue;">info</mat-icon>
+                                    </td>
+
+                                    <td>{{item.issueDate}}</td>
+                                    <td>{{item.dueDate}}</td>
+                                    <td class="text-center">
+                                        {{item.completiondate}}
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="mine" mat-fab (click)="scrollGrid('right');">
+                            <mat-icon style="color:#37474f">fast_forward</mat-icon>
+                        </button>
+                        <button class="mine" mat-fab style="margin-right: 78px !important;"
+                            (click)="scrollGrid('left');">
+                            <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+                        </button>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="NewHeader" style="background-color: #2865ab; text-align: center;">
+    <h1 mat-dialog-title style="color: white;">
+        <span>
+            List Of Documents
+        </span>
+    </h1>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="row" style="margin-bottom: 12px;">
+            <!-- text input -->
+            <div class="col-sm-3 add-mem">
+                <label class="add-member-label lblfnt mt5 required">Doc Title:</label>
+            </div>
+            <div class="col-sm-9">
+                <div>
+                    <input class="form-control name" maxlength="50" placeholder="Enter Document Title" type="text"
+                        value="">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 12px;">
+            <!-- text input -->
+            <div class="col-sm-3">
+                <label class="add-member-label">Upload Doc:</label>
+            </div>
+            <div class="col-sm-9">
+                <div>
+                    <input class="form-control name" placeholder="No file chosen" type="file" value="">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-12">
+            <button mat-raised-button class="cancel mb-3 pull-right" (click)="close()"
+                style="background-color: green; color: white;">
+                Save
+            </button>
+        </div>
+        <!-- Creating Table  -->
+        <div class="table-responsive col-sm-12">
+            <table id="example2" class="table table-bordered">
+                <thead class="tbl-head">
+                    <tr>
+                        <th>Document Title</th>
+                        <th class="text-center">Uploaded Date</th>
+                        <th class="text-center">Download</th>
+                        <th class="text-center">Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let applicant of users">
+                        <td>{{applicant.type}}</td>
+                        <td class="text-center">12-07-2024</td>
+                        <td class="text-center" matTooltip="Download" style="color: blue; cursor: pointer;">
+                            <mat-icon>cloud_download</mat-icon>
+                        </td>
+                        <td class="text-center editDel">
+                            <a style="cursor: pointer;margin-right:10px;" matTooltip="Edit">
+                                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                            </a>
+                            <a><i class="fa fa-trash red" matTooltip="Delete" style="cursor: pointer;"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+    <div style="margin-bottom: 5px;">
+        <div class="pull-right">
+            <button mat-raised-button class="cancel" (click)="close()"
+                style=" background-color:  #e4e4e6!important; color: rgb(6, 6, 6);">
+                <mat-icon>cancel</mat-icon>Close
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+/* Targeting the circles that represent data points */
+svg .circle {
+    fill: #00ff00 !important;
+    /* Green for actual data */
+    stroke: black;
+    stroke-width: 1.5px;
+}
+
+/* Different color for plan data points */
+svg .circle:nth-child(odd) {
+    fill: #1f77b4 !important;
+    /* Blue for plan data */
+}
+
+/* Styling the chart legend */
+.ngx-charts-legend-label {
+    font-size: 14px;
+    font-weight: bold;
+    fill: #000;
+}
+
+/* Custom font size for axis labels */
+.ngx-charts-axis-label {
+    font-size: 12px;
+    fill: #000;
+}
+
+/* Styling the grid lines */
+svg .gridline {
+    stroke: lightgray;
+    stroke-dasharray: 2;
+}
+
+/* Tooltip styling */
+.ngx-charts-tooltip-area {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 12px;
+}
+
+/* Optional: Add spacing between chart elements */
+.ngx-charts-chart {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

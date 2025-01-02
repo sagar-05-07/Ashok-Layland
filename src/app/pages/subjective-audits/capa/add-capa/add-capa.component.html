@@ -1,0 +1,68 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+        Edit Action
+    </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Audit Type: </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select class="form-control" placeholder="Select Audit Type" required>
+                        <mat-option [value]="0">Process Audit</mat-option>
+                        <mat-option [value]="1">Parts Audit</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Commodity : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="text" class="form-control" placeholder="Enter Commodity">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Part Family : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="text" class="form-control" placeholder="Enter Part Family">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Due Date : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="date" class="form-control" placeholder="Enter Part Family">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Issues Date : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="date" class="form-control" placeholder="Enter Part Family">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">Auditor Remarks : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <textarea type="text" class="form-control" placeholder="Enter Auditor Remarks"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">Auditee Response : </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <textarea type="text" class="form-control" placeholder="Enter Auditee Response"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <!-- <button type="button" class="btn btn-outline-success" style="margin-right: 10px; height: 41px;">Save Draft</button> -->
+    <button mat-raised-button color="primary" [mat-dialog-close]="'test'">
+        <mat-icon>save</mat-icon><span>Save</span>
+    </button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">
+        <mat-icon>cancel</mat-icon>Close
+    </button>
+</mat-dialog-actions>

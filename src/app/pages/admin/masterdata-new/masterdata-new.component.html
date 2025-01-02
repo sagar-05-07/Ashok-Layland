@@ -1,0 +1,74 @@
+<div class="row-wrap">
+  <div class="w-100">
+    <!-- Master Data Tabs -->
+    <div class="col-xs-12" style="margin-top: 15px; margin-left: -16px;">
+      <div class="pills">
+        <ul class="nav nav-pills" style="margin-left: 10px;">
+          <li routerLinkActive="active" [routerLink]="['./model']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Model Master
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./supplier']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Suppliers Master
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./variant']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Variant Master
+            </a>
+          </li>
+          <!-- <li routerLinkActive="active" [routerLink]="['./location']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Location
+            </a>
+          </li> -->
+          <li routerLinkActive="active" [routerLink]="['./agency']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Agency Master
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./interior-trim']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Interior Trim
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./colour']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Color
+            </a>
+          </li>
+
+          <li routerLinkActive="active" [routerLink]="['./transmission']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Transmission
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./fuel-type']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Fuel Type
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./stages']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Stages
+            </a>
+          </li>
+
+          <li routerLinkActive="active" [routerLink]="['./state']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              States Master
+            </a>
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./city']">
+            <a mat-raised-button class="navtabWidth" style="margin-top: 10px;">
+              Cities Master
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,172 @@
+<div class="NewHeader" style="background-color:lightgrey;color: black;">
+    <!-- <h3>Add / Edit Issue</h3> -->
+    <h3>Add / Edit Case</h3>
+
+
+</div>
+
+<div mat-dialog-content style="padding: 5px;">
+    <div fxLayout="row wrap" class="col-sm-12">
+        <div class="col-sm-2" style="margin-bottom: 10px;">
+            <div class="m-auto pills pt-2 pr-0">
+                <ul class="nav col-12 flex-column pr-0">
+                    <li class="nav-item" style="margin-top: 10px;"
+                        [ngClass]=" addStep == 1 ? 'active nav-item' : 'nav-item'" (click)="changeAddStep(1)"
+                        routerLinkActive="active">
+                        <a mat-raised-button class="nav-link text-left width ">Overview
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 10px;"
+                        [ngClass]=" addStep == 2 ? 'active nav-item': 'nav-item'" (click)="changeAddStep(2)"
+                        routerLinkActive="active">
+                        <a mat-raised-button class="nav-link text-left width">Details
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div *ngIf="addStep == 1" class="col-sm-10" style="margin-top: 1px;">
+            <div>
+                <form class="col-sm-12 row form-horizontal">
+                    <!-- Attorny -->
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="attorneysDropdown">Requestor Name:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <select id="attorneysDropdown" class="form-control">
+                                <option value="" disabled selected>--Select Requestor--</option>
+                                <option value="criminalDefense">
+                                    Kirkland & Ellis</option>
+                                <option value="familyLaw">Latham & Watkins</option>
+                                <option value="intellectualProperty">
+                                    DLA Piper</option>
+                                <option value="personalInjury">
+                                    Baker & McKenzie</option>
+                                <option value="employmentLaw">
+                                    Skadden</option>
+                                <option value="realEstate">
+                                    Dentons</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="padding: 1cqmax;">
+                        <div class="col-sm-4">
+                            <label for="serviceDetails">Subject :</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" id="serviceDetails" class="form-control" placeholder="Enter Subject">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="fees">Case Reference:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" id="fees" class="form-control" placeholder="Enter Case Reference"
+                                style="margin-bottom: 10px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <label for="remarks">Remarks :</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <textarea id="remarks" class="form-control" rows="4" placeholder="Enter Remarks"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="padding: 15px;">
+                        <mat-dialog-actions align="end" style="margin-top: 15px;">
+                            <button (click)="saveLead()" mat-raised-button
+                                style="background-color:#229494 ;color: white;">Save</button>
+
+
+                            <button mat-raised-button class="add-dark-hover btn-default" (click)="changeAddStep(2)"
+                                style="margin-right: px;">Proceed</button>
+                            <button mat-raised-button class="add-dark-hover btn-default" (click)="close()"
+                                style="margin-right: px;">Cancel</button>
+                        </mat-dialog-actions>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+        <div *ngIf="addStep == 2" class="col-sm-10" style="padding-left: 82px;margin-top: 16px;">
+            <div class="row">
+                <p style="margin-bottom: 30px;margin-left: 14px;">Please select Patients in the left side list and use
+                    arrows to add them into the selected list</p>
+                <div class="col-sm-5">
+                    <select multiple [(ngModel)]="leftBoxItems" class="form-control" style="height: 200px;">
+                        <!-- Options for left box -->
+                        <option>John Smith</option>
+                        <option>Mary Johnson</option>
+                        <option>Michael Williams</option>
+                        <option>Jennifer Brown</option>
+                        <option>Christopher Jones</option>
+                        <option>Jessica Garcia</option>
+                        <option>William Martinez</option>
+                        <option>Elizabeth Davis</option>
+                        <option>David Rodriguez</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" style="margin-top: 50px;">
+                    <div class="text-center">
+                        <div class="button-container">
+                            <mat-icon class="custom-icon">person</mat-icon>
+                            <button mat-raised-button class="btn-success">
+                                Add
+                            </button>
+                        </div>
+                        <br><br>
+                        <div class="button-container">
+
+                            <button mat-stroked-button style="border-color: red;color: red;">
+                                Remove
+                            </button>
+                            <mat-icon class="custom-icon1">remove_circle</mat-icon>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <select multiple [(ngModel)]="rightBoxItems" class="form-control" style="height: 200px;">
+                        <!-- Options for right box -->
+                        <option>Michael Williams</option>
+                        <option>Jennifer Brown</option>
+                        <option>Christopher Jones</option>
+                        <option>Jessica Garcia</option>
+                        <option>William Martinez</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-sm-12" style="padding: 15px;">
+                <mat-dialog-actions align="end" style="margin-top: 15px;">
+                    <button (click)="saveLead()" mat-raised-button
+                        style="background-color:#229494; color: white;">Save</button>
+
+                    <button mat-raised-button class="add-dark-hover btn-default"
+                        (click)="changeAddStep(1)">Back</button>
+                    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()"
+                        style="margin-right: -23px;">Cancel</button>
+                </mat-dialog-actions>
+            </div>
+        </div>
+
+
+
+        <!-- </div> -->
+    </div>
+</div>

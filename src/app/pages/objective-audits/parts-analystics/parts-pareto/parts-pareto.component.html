@@ -1,0 +1,158 @@
+<div class="row mb-5">
+    <div class="row wrap col-sm-12 mt-4">
+        <div class="container">
+            <mat-card class="mt-3" style="background-color: rgb(200, 226, 236); width: 99%; margin-left: 15px;">
+                <div class="row wrap">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Commodity : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Commodity">
+                                <mat-option value="John Doe">Casting</mat-option>
+                                <mat-option value="John Doe">Forging</mat-option>
+                                <mat-option value="John Doe">Machining</mat-option>
+                                <mat-option value="John Doe">Fasteners</mat-option>
+                                <mat-option value="John Doe">Non-Metallic</mat-option>
+                                <mat-option value="John Doe">Sheet Metal</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-3 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Severity : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Severity">
+                                <mat-option value="John Doe">Important</mat-option>
+                                <mat-option value="John Doe">Critical</mat-option>
+                                <mat-option value="Jane Smith">Others</mat-option>
+                            </mat-select>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-4 pull-right">
+                        <label class="control-label col-sm-4 mt-2">Select Year : </label>
+                        <div class="col-sm-7 mt-1">
+                            <mat-select class="form-control" placeholder="Select Year">
+                                <mat-option value="John Doe">FY 2021 - 2022</mat-option>
+                                <mat-option value="John Doe">FY 2022 - 2023</mat-option>
+                                <mat-option value="Jane Smith">FY 2023 - 2024</mat-option>
+                                <mat-option value="Michael Johnson">FY 2024 - 2025</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button mat-raised-button color="primary" style="height: 35px; margin-top: 3px;"
+                            class="pull-right margin-right-10">
+                            <mat-icon>search</mat-icon> Go
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="col-sm-12 mt-5" style="margin-left: 10px;">
+        <h2 class="mb-4 mt-3" style="margin-left: 10px;">Critical NC Distribution by Parts Category</h2>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div id="grid-table-container" class="table-responsive mt-4">
+                    <table matSort id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr>
+                                <th>Category Name</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items">
+                                <td>{{item.cat}}</td>
+                                <td class="text-center">{{item.score }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px;  margin-bottom: 15px;">
+                        <div #chartContainer id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12 mt-5" style="margin-left: 10px;">
+        <h2 class="mb-4 mt-3" style="margin-left: 10px;">Important NC Distribution by Parts Category</h2>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div id="grid-table-container" class="table-responsive mt-4">
+                    <table matSort id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr>
+                                <th>Category Name</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items">
+                                <td>{{item.cat}}</td>
+                                <td class="text-center">{{item.score }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px;  margin-bottom: 15px;">
+                        <div #chartContainer1 id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+
+
+    <div class="col-sm-12 mt-5" style="margin-left: 10px;">
+        <h2 class="mb-4 mt-3" style="margin-left: 10px;">Critical & Important NC Distribution by Commodity</h2>
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div id="grid-table-container" class="table-responsive mt-4">
+                    <table matSort id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr>
+                                <th>Commodity Name</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items1">
+                                <td>{{item.cat}}</td>
+                                <td class="text-center">{{item.score }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-card style="height: 400px; width: auto;">
+                <div class="row">
+                    <div style="margin-left: 11px;  margin-bottom: 15px;">
+                        <div #chartContainer2 id="pie-chart-container"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+</div>
